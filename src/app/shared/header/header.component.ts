@@ -19,5 +19,14 @@ export class HeaderComponent implements OnInit {
   }
 
 
+  isMenuCollapsed = true;
+
+ 
+
+
+  // logout(): void {
+
+  //   this.router.navigate(['/login']);
+
 
 }

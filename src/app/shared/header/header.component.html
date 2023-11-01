@@ -4,12 +4,12 @@
     <a href="index.html" class="navbar-brand">
         <h1 class="m-0 text-secondary">Cielito Azul</h1>  <!-- <i class="fa fa-cloud text-info me-2"> </i> -->
     </a>
-    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+    <button type="button" class="navbar-toggler " data-bs-toggle="collapse" data-bs-target="#navbarCollapse" [ngClass]="{'collapsed': isMenuCollapsed}" (click)="isMenuCollapsed = !isMenuCollapsed">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarCollapse"  data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-        <div class="navbar-nav mx-auto">
-            <a routerLink="/home" class="nav-item nav-link ">Home</a>
+    <div class="collapse navbar-collapse" id="navbarCollapse" [ngClass]="{'show': !isMenuCollapsed}" (click)="isMenuCollapsed = true">
+        <div class="navbar-nav mx-auto " id="menu-button" >
+            <a routerLink="/home" class="nav-item nav-link " id="navbarSupportedContent" >Home</a>
             <a routerLink="/about" class="nav-item nav-link ">About Us</a>
             <!-- <a href="product.html" class="nav-item nav-link">Products</a> -->
             <a href="blog.html" class="nav-item nav-link">Blog</a>
