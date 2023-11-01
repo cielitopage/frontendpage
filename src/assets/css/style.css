@@ -130,7 +130,7 @@ h6,
     transform: rotate(-180deg);
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 991px) {
     .navbar .navbar-nav .nav-link  {
         margin-right: 0;
         padding: 10px 0;
@@ -142,7 +142,7 @@ h6,
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 912px) {
     .navbar .nav-item .dropdown-menu {
         display: block;
         top: calc(100% - 15px);

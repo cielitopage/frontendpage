@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 declare function customInitFunction(): any;
+declare function initEasing(): any;
+declare function initOwlCarousel(): any;
+declare function customInitFunctionWay(): any;
+declare function customInitFunctionWow(): any;
 
 @Component({
   selector: 'app-header',
@@ -18,6 +22,10 @@ export class HeaderComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     customInitFunction();
+    initEasing();
+    initOwlCarousel();
+    customInitFunctionWay();
+    customInitFunctionWow();
    
   }
 
