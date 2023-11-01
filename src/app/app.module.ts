@@ -17,6 +17,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
+import { BannerComponent } from './shared/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AppRoutingModule } from './app-routing.module';
     FacilitisComponent,
     ContactComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,
