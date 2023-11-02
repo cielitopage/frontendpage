@@ -19,6 +19,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BannerComponent } from './shared/banner/banner.component';
 import { FormsModule } from '@angular/forms';
+import { CartstatusComponent } from './shared/cartstatus/cartstatus.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -37,12 +41,16 @@ import { FormsModule } from '@angular/forms';
     ContactComponent,
     AboutComponent,
     HomeComponent,
-    BannerComponent
+    BannerComponent,
+    CartstatusComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
