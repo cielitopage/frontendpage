@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
 })
 export class CartstatusComponent implements OnInit {
-  public totalPrice : number = 100;
+  public totalPrice : number = 180.76;
   public totalQuantity : number = 2;
 
   constructor() { }
