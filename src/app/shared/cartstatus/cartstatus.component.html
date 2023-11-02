@@ -1,7 +1,12 @@
 <div  class="cartstatus">
-    <a   routerLink="/cart" class=" "
-    >$:{{totalPrice }}</a>
-    <mat-icon matBadge="{{totalQuantity}}" matBadgePosition="above after" matBadgeColor="warn">shopping_cart</mat-icon>  
-    <span class="badge badge-pill badge-danger">{{totalQuantity}}</span>     
+    <a
+        routerLink="/cart"
+        class="btn btn-primary rounded-pill px-3 "
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+        > $ :{{totalPrice }}
+        <mat-icon matBadge="{{totalQuantity}}" matBadgePosition="above after" matBadgeColor="accent">shopping_cart</mat-icon> </a>
+     
+ 
 
 </div>

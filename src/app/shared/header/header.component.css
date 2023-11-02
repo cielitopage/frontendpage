@@ -1,0 +1,29 @@
+.activo {
+    padding-right: 12px;
+    font-weight: bold !important;
+    font-size: 1.3em;
+    font-style: cursive;
+    color: #0f3764 !important;
+
+    background: url(../../../assets/img/icono-visitado.gif) no-repeat 100% 50%;
+    scroll-behavior: smooth;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+
+    -moz-transition: all 0.5s ease-in-out;
+
+    }
+
+
+  @media screen and (max-width: 718px) {
+    
+    .activo {
+        padding-right: 2px;
+        font-weight: bold !important;
+    }
+}
+    
+   
+  
+
+

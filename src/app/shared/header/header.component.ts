@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
+
 
 declare function customInitFunction(): any;
 declare function initEasing(): any;
@@ -17,7 +18,8 @@ export class HeaderComponent implements OnInit {
   
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute  
+    private activatedRoute: ActivatedRoute  ,
+   
     
   ) { }
   ngOnInit(): void {

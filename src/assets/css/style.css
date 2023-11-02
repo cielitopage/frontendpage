@@ -77,33 +77,33 @@ h4,
 .h3,
 .h4,
 .display-1,
-.display-2,
+.display-2 ,
 .display-3,
 .display-4,
 .display-5,
 .display-6 {
-    font-family: 'Lobster Two', cursive;
-    font-weight: 700;
+    font-family: 'Lobster Two', cursive !important;
+    font-weight: 700 !important;
 }
 
 h5,
 h6,
 .h5,
 .h6 {
-    font-weight: 600;
+    font-weight: 600 !important;
 }
 
 .font-secondary {
-    font-family: 'Lobster Two', cursive;
+    font-family: 'Lobster Two', cursive !important;
 }
 
 
 /*** Navbar ***/
 .navbar .navbar-nav .nav-link {
-    padding: 30px 15px;
-    color: var(--primary);
-    font-weight: 500;
-    outline: none;
+    padding: 30px 15px !important;
+    color: var(--primary) !important;
+    font-weight: 500 !important;
+    outline: none !important;
 }
 
 .navbar .navbar-nav .nav-link:hover,
@@ -133,7 +133,7 @@ h6,
 @media (max-width: 991px) {
     .navbar .navbar-nav .nav-link  {
         margin-right: 0;
-        padding: 10px 0;
+        padding: 10px 0 !important;
     }
 
     .navbar .navbar-nav {
