@@ -1,70 +1,82 @@
-        <!-- Page Header End -->
-        <div class="container-xxl py-5 page-header position-relative mb-5">
-            <div class="container py-5">
-                <h1 class="display-2 text-white animated slideInDown mb-4">About Us</h1>
-                <nav aria-label="breadcrumb animated slideInDown">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">About Us</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-        <!-- Page Header End -->
-<div class="container-xxl py-5">
-    <div class="container 
-        d-flex
-        flex-column
-        justify-content-center
-        align-items-center
-        ">
+<app-breadcrumbd></app-breadcrumbd>
 
 
-    
-            <div class="screen">
-                <div class="screen__content">
-                    <form class="login">
-                        <div class="login__field">
-                            <i class="login__icon fas fa-user"></i>
-                            <input type="text" class="login__input" placeholder=" Email">
+        <!-- Contact Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+               
+               
+                <div class="bg-light rounded">
+                    <div class="row g-0">
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                            <div class="h-100 d-flex flex-column justify-content-center p-5">
+                                <p class="mb-4"><a> ¿Querés ser parte de Cielito Azul? <br> Tenemos buenas ofertas y mucha inspiración para vos </a>.</p>
+                                <form class="contact-form" id="contactForm" data-toggle="validator" (ngSubmit)="onSubmit()">
+                                    <div class="row g-3">                                  
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="nombre" placeholder="Nombre">
+                                                <i class="login__icon fas fa-user"></i>
+                                                <label for="name">Nombre</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="email" class="form-control border-0" id="email" placeholder="Email">
+                                                <i class="login__icon fas fa-user"></i>
+                                                <label for="email">Email</label>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="password" class="form-control border-0" id="password" placeholder="Password">
+                                                <i class="login__icon fas fa-lock"></i>
+                                                <label for="subject">&nbsp;&nbsp; Password</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="password" class="form-control border-0" id="password" placeholder="Password">
+                                                <i class="login__icon fas fa-lock"></i>
+                                                <label for="subject">&nbsp;&nbsp;Confirm Password</label>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100 py-3" type="submit">Register</button>
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100 py-3" type="submit">Login by Google</button>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <a routerLink="/login" class="login__link">Login</a>
+                                            </div>
+
+                                            <div class="form-floating">
+                                                <a routerLink="/forgot-password" class="login__link">Forgot Password</a>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                        <div class="login__field">
-                            <i class="login__icon fas fa-lock"></i>
-                            <input type="password" class="login__input" placeholder="Password">
-                        </div>
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                            <div class="position-relative h-100">
 
-                        <div class="login__field">
-                            <i class="login__icon fas fa-lock"></i>
-                            <input type="password" class="login__input" placeholder="Confirm Password">
-                        </div>
-                        <button class="button login__submit">
-                            <span class="button__text">Register Now</span>
-                            <i class="button__icon fas fa-chevron-right"></i>
-                        </button>	
+                                <iframe src="https://www.google.com/maps/embed?pb=!4v1698950550949!6m8!1m7!1segAI9mLFod4OwaQQLqZ4xA!2m2!1d-34.81806164476716!2d-58.46625663544138!3f334.00053066166794!4f-1.263894427117549!5f2.4814377297593313" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-                       
-                        <button class="button login__submit">
-                            <span class="button__text">Register by Google      </span>
-                            <i class="social-login__icon fab fa-google"></i>
-                        </button>
-
-                        <div class="login__field">
+           
                             
-                            <a routerLink="/login" class="login__link">Login</a>
+                            </div>
                         </div>
-                    
-
-                    </form>
-                 
+                    </div>
                 </div>
-                <div class="screen__background">
-                    <span class="screen__background__shape screen__background__shape4"></span>
-                    <span class="screen__background__shape screen__background__shape3"></span>		
-                    <span class="screen__background__shape screen__background__shape2"></span>
-                    <span class="screen__background__shape screen__background__shape1"></span>
-                </div>		
             </div>
         </div>
-
-</div>
+        <!-- Contact End -->

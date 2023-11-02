@@ -10,13 +10,13 @@ import { RegisterComponent } from './auth/register/register.component';
 
 const routes : Routes = [
   { path: '', redirectTo: '/', pathMatch: 'full' },  
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'about', component:AboutComponent},
-  { path: 'contact', component:ContactComponent},
-  { path: 'login', component:LoginComponent},
-  { path: 'register', component:RegisterComponent},
-  { path: '**',component:Page404Component}  
+  { path: '', component: HomeComponent , data: { title: 'Home' }}, 
+  { path: 'home', component: HomeComponent , data: { title: 'Home' }},
+  { path: 'about', component:AboutComponent, data: { title: 'About' }},
+  { path: 'contact', component:ContactComponent, data: { title: 'Contact' }},
+  { path: 'login', component:LoginComponent, data: { title: 'Login' }},
+  { path: 'register', component:RegisterComponent, data: { title: 'Register' }},
+  { path: '**',component:Page404Component, data: { title: 'Page404' }}
 ];
 
 
