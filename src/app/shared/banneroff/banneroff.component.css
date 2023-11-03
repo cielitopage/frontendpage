@@ -74,11 +74,12 @@
       height: 30vh;
     }
     .big-text {
-      font-size: 60px;
+      font-size: 70px;
+      margin-top: -10px !important;
     }
     .banner a {
       font-size: 20px;
-        margin-top: 20px;
+        margin-top: 95px;
     }
     .tada {
       margin-top: 20px;
