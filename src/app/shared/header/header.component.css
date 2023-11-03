@@ -56,6 +56,12 @@
         
 
     }
+    .logo-dark{
+          
+        margin-left: 10px;
+        margin-top: 10px;
+        height: 35px;
+    }
 
 
   @media screen and (max-width: 718px) {
@@ -63,6 +69,13 @@
     .activo {
         padding-right: 2px;
         font-weight: bold !important;
+    }
+    .logo-dark{
+
+          
+        margin-left: -5px;
+        margin-top: 5px;
+        height: 20px;
     }
 }
     
