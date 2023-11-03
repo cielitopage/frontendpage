@@ -4,6 +4,9 @@
     <a routerLink="/" class="navbar-brand">
         <h1 class="m-0 text-secondary">Cielito Azul</h1>  <!-- <i class="fa fa-cloud text-info me-2"> </i> -->
     </a>
+ 
+    <app-cartstatus class="navbar-toggler "></app-cartstatus>
+
     <button type="button" class="navbar-toggler " data-bs-toggle="collapse" data-bs-target="#navbarCollapse" [ngClass]="{'collapsed': isMenuCollapsed}" (click)="isMenuCollapsed = !isMenuCollapsed">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,15 +14,15 @@
         <div class="navbar-nav mx-auto " id="menu-button" >
             <a routerLink="/home" routerLinkActive="activo"  class="nav-item nav-link " id="navbarSupportedContent" >Home</a>
             <a routerLink="/about" routerLinkActive="activo" class="nav-item nav-link ">About Us</a>
-            <a href="product.html"routerLinkActive="activo"  class="nav-item nav-link">Niños</a> 
-            <a href="product.html"routerLinkActive="activo"   class="nav-item nav-link">Niñas</a>             
-            <a href="blog.html" routerLinkActive="activo"  class="nav-item nav-link">Blog</a>
-            
+            <a href="product.html"routerLinkActive="activo"  class="nav-item nav-link">Chicos</a> 
+            <a href="product.html"routerLinkActive="activo"   class="nav-item nav-link">Chicas</a>   
+            <a href="product.html"routerLinkActive="activo"   class="nav-item nav-link">Bebes</a>             
+            <a href="blog.html" routerLinkActive="activo"  class="nav-item nav-link">Blog</a>            
             <a routerLink="/contact" routerLinkActive="activo" class="nav-item nav-link">Contact Us</a>
         </div>
-        <app-cartstatus></app-cartstatus>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
-    
-        <a routerLink="/login" class="btn btn-primary rounded-pill px-3 ">Log in<i class="fa fa-sign-in-alt ms-3"></i></a>
+        <app-cartstatus ></app-cartstatus>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+        <mat-icon  routerLink="/login" class="login" >login</mat-icon>
+        <!-- <a routerLink="/login" class="btn btn-primary rounded-pill px-3 ">Log in<i class="fa fa-sign-in-alt ms-3"></i></a> -->
         <!-- <a routerLink="/register" class="btn btn-primary rounded-pill px-3 ">Log in<i class="fa fa-sign-in-alt ms-3"></i></a>
        -->
     </div>
