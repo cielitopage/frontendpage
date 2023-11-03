@@ -1,7 +1,7 @@
 .banner {
     width: 100%;
     height: 50vh;
-    background:url(../../../assets/img/background-cold-gif-nature-Favim.com-2380226.gif);
+    background:url(../../../assets/img/bg-personajes.png);
     /*https://i0.wp.com/media.giphy.com/media/5ERaOy5fQEIAU/giphy.gif*/
     background-size: cover;
     font-size: 60px;
@@ -14,6 +14,15 @@
     font-size: 90px;
     font-weight:800;
     animation-delay: 1s;
+    color: #000000;
+
+  }
+  .small-text {
+    font-size: 21px;
+    font-weight:600;
+    animation-delay: 2s;
+    color: #000000;
+
   }
   .banner a {
     display: inline-block;
