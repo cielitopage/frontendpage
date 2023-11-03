@@ -1,0 +1,47 @@
+.title-about {
+    font-family: 'Roboto', 'Helvetica Neue', sans-serif !important;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #000000;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.336);
+}
+
+.subtitle-about {
+    font-family: 'Dancing Script', cursive;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: #000000;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.btn-primary{
+    color: #ff0303;
+    background-color: #ffffff;
+    border-color: #ff0303;
+    border-radius: 0px;
+    font-family: 'Roboto', 'Helvetica Neue', sans-serif !important;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+  
+
+}
+
+.btn-primary:hover{
+    color: #ffffff;
+    background-color: #ff0303;
+    border-color: #ff0303;
+    border-radius: 0px;
+    font-family: 'Roboto', 'Helvetica Neue', sans-serif !important;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    
+}
+
+

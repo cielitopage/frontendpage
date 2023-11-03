@@ -23,6 +23,7 @@ import { CartstatusComponent } from './shared/cartstatus/cartstatus.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     FormsModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
