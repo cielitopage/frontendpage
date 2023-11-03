@@ -6,6 +6,10 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { Page404Component } from './pages/page404/page404.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { ChicosComponent } from './pages/chicos/chicos.component';
+import { ChicasComponent } from './pages/chicas/chicas.component';
+import { BebesComponent } from './pages/bebes/bebes.component';
+import { BlogComponent } from './pages/blog/blog.component';
 
 
 const routes : Routes = [
@@ -13,6 +17,10 @@ const routes : Routes = [
   { path: '', component: HomeComponent , data: { title: 'Home' }}, 
   { path: 'home', component: HomeComponent , data: { title: 'Home' }},
   { path: 'about', component:AboutComponent, data: { title: 'About' }},
+  { path: 'chicos', component:ChicosComponent, data: { title: 'Chicos' }},
+  { path: 'chicas', component:ChicasComponent, data: { title: 'Chicas' }},
+  { path: 'bebes', component:BebesComponent, data: { title: 'Bebes' }},
+  { path: 'blog', component:BlogComponent, data: { title: 'Blog' }},
   { path: 'contact', component:ContactComponent, data: { title: 'Contact' }},
   { path: 'login', component:LoginComponent, data: { title: 'Login' }},
   { path: 'register', component:RegisterComponent, data: { title: 'Register' }},

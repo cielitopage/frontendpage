@@ -21,15 +21,16 @@
         cursor: pointer;   
         transition: all 0.5s ease-out;
         scroll-behavior: smooth;
-        text-shadow: 0px 0px 10px rgb(245, 98, 134);
-        text-emphasis-color: #f2f2f3;
-
-
+       
+       
     }
     .login:hover{
         color: #0f3764 !important;
         text-shadow: 0px 0px 10px #f2f2f3;
         text-emphasis-color: #f2f2f3;
+
+       
+
     }
 
 

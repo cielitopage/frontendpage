@@ -24,6 +24,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import {MatButtonModule} from '@angular/material/button';
+import { ChicosComponent } from './pages/chicos/chicos.component';
+import { ChicasComponent } from './pages/chicas/chicas.component';
+import { BebesComponent } from './pages/bebes/bebes.component';
+import { BlogComponent } from './pages/blog/blog.component';
+import { BanneroffComponent } from './shared/banneroff/banneroff.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +48,12 @@ import {MatButtonModule} from '@angular/material/button';
     AboutComponent,
     HomeComponent,
     BannerComponent,
-    CartstatusComponent
+    CartstatusComponent,
+    ChicosComponent,
+    ChicasComponent,
+    BebesComponent,
+    BlogComponent,
+    BanneroffComponent
   ],
   imports: [
     BrowserModule,
