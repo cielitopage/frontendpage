@@ -1,12 +1,14 @@
 .cartstatus {
   margin-top: 10px;
   margin-bottom: 10px;
-  font-size: 1.5em;
+  font-size: 1.9em;
   font-weight: bold;
+  color: #6a679e;
 }
 
 .cartstatus:hover {
-  color: #6a679e;
+  
+  color: #1f1f25;
 }
 
 
