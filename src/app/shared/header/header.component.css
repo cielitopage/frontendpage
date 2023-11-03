@@ -77,6 +77,29 @@
         margin-top: 5px;
         height: 20px;
     }
+    .login{
+        padding-right: 35px;   
+        color: #030303 !important;
+        cursor: pointer;   
+        transition: all 0.5s ease-out;
+        margin-top: -9px;
+
+        font-size: 23px;
+      
+        
+       
+
+    
+    }
+    
+    .navbar-toggler {
+     
+      
+        line-height: 1;
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+    }
 }
     
    
