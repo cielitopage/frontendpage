@@ -1,0 +1,11 @@
+.title-about {
+    font-family: 'Roboto', 'Helvetica Neue', sans-serif !important;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.5;    
+    color: #000000 !important;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.336);
+    letter-spacing: 0.9rem;
+    margin-bottom: 30px;
+}
