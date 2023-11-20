@@ -29,6 +29,7 @@ import { ChicasComponent } from './pages/chicas/chicas.component';
 import { BebesComponent } from './pages/bebes/bebes.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BanneroffComponent } from './shared/banneroff/banneroff.component';
+import { Banner3x2Component } from './shared/banner3x2/banner3x2.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { BanneroffComponent } from './shared/banneroff/banneroff.component';
     ChicasComponent,
     BebesComponent,
     BlogComponent,
-    BanneroffComponent
+    BanneroffComponent,
+    Banner3x2Component
   ],
   imports: [
     BrowserModule,
