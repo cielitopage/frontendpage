@@ -78,7 +78,11 @@
       height: 15vh;
     }
     .big-text {
-      font-size: 70px;
+      font-size: 80px;
+      margin-top: -10px !important;
+    }
+    .small-text {
+      font-size: 218px;
       margin-top: -10px !important;
     }
     .banner a {
