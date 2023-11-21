@@ -75,7 +75,7 @@
 
   @media screen and (max-width: 768px) {
     .banner {
-      height: 30vh;
+      height: 15vh;
     }
     .big-text {
       font-size: 70px;
