@@ -33,8 +33,7 @@ import { Banner3x2Component } from './shared/banner3x2/banner3x2.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ValidateComponent } from './pages/validate/validate.component';
-import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
-import { environment } from 'src/environments/environment';
+
 
 
 
@@ -77,17 +76,10 @@ import { environment } from 'src/environments/environment';
     MatBadgeModule,
     MatButtonModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    RecaptchaModule,
-    RecaptchaFormsModule,
+    HttpClientModule
   ],
   providers: [
-    {
-      provide: RECAPTCHA_SETTINGS,
-      useValue: {
-        siteKey: environment.recaptcha.siteKey,
-      } as RecaptchaSettings,
-    },
+   
   ],
   bootstrap: [AppComponent]
 })

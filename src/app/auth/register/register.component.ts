@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  token: string|undefined;
+
 
   public formSubmitted = false;
 
