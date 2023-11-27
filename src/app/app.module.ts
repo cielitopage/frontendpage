@@ -18,7 +18,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BannerComponent } from './shared/banner/banner.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartstatusComponent } from './shared/cartstatus/cartstatus.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
@@ -30,6 +30,14 @@ import { BebesComponent } from './pages/bebes/bebes.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BanneroffComponent } from './shared/banneroff/banneroff.component';
 import { Banner3x2Component } from './shared/banner3x2/banner3x2.component';
+import { LoaderComponent } from './shared/loader/loader.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ValidateComponent } from './pages/validate/validate.component';
+import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
+import { environment } from 'src/environments/environment';
+
+
+
 
 @NgModule({
   declarations: [
@@ -55,7 +63,10 @@ import { Banner3x2Component } from './shared/banner3x2/banner3x2.component';
     BebesComponent,
     BlogComponent,
     BanneroffComponent,
-    Banner3x2Component
+    Banner3x2Component,
+    LoaderComponent,
+    ValidateComponent,  
+
   ],
   imports: [
     BrowserModule,
@@ -64,9 +75,20 @@ import { Banner3x2Component } from './shared/banner3x2/banner3x2.component';
     BrowserAnimationsModule,
     MatIconModule,
     MatBadgeModule,
-    MatButtonModule
+    MatButtonModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: {
+        siteKey: environment.recaptcha.siteKey,
+      } as RecaptchaSettings,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

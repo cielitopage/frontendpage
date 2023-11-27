@@ -22,7 +22,7 @@ export class Banner3x2Component implements OnInit {
 
     setTimeout(() => {
       this.banner3x2big = true;
-    }, 2000);
+    }, 1000);
   
   
   

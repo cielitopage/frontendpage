@@ -10,6 +10,7 @@ import { ChicosComponent } from './pages/chicos/chicos.component';
 import { ChicasComponent } from './pages/chicas/chicas.component';
 import { BebesComponent } from './pages/bebes/bebes.component';
 import { BlogComponent } from './pages/blog/blog.component';
+import { ValidateComponent } from './pages/validate/validate.component';
 
 
 const routes : Routes = [
@@ -24,6 +25,7 @@ const routes : Routes = [
   { path: 'contact', component:ContactComponent, data: { title: 'Contact' }},
   { path: 'login', component:LoginComponent, data: { title: 'Login' }},
   { path: 'register', component:RegisterComponent, data: { title: 'Register' }},
+  { path: 'user-actived/:token', component:ValidateComponent, data: { title: 'validate' }},
   { path: '**',component:Page404Component, data: { title: 'Page404' }}
 ];
 

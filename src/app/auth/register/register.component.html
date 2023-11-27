@@ -1,85 +1,125 @@
 <app-breadcrumbd></app-breadcrumbd>
 
 
-        <!-- Contact Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-               
-               
-                <div class="bg-light rounded">
-                    <div class="row g-0">
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
-                            <!-- <div class="position-relative h-100">                 
-                              <iframe class="position-relative rounded w-100 h-100"
-                              src="https://www.google.com/maps/embed?pb=!3m2!1ses-419!2sar!4v1698530199725!5m2!1ses-419!2sar!6m8!1m7!1segAI9mLFod4OwaQQLqZ4xA!2m2!1d-34.81806164476716!2d-58.46625663544138!3f328.56860478215935!4f-1.4266254631153572!5f1.1924812503605782"
-                               width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                              </iframe>
-                              </div> -->
-                              <div class="position-relative h-100">
-                                  <img class="position-absolute w-100 h-100 rounded" src="../assets/img/ropa.jpg" style="object-fit: cover;">
-                              </div>
-                      </div>
-                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                            <div class="h-100 d-flex flex-column justify-content-center p-5">
-                                <p class="mb-4"><a> ¿Querés ser parte de Cielito Azul? <br> Tenemos buenas ofertas y mucha inspiración para vos </a>.</p>
-                                <form class="contact-form" id="contactForm" data-toggle="validator" (ngSubmit)="onSubmit()">
-                                    <div class="row g-3">                                  
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control border-0" id="nombre" placeholder="Nombre">
-                                                <i class="login__icon fas fa-user"></i>
-                                                <label for="name">Nombre</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="email" class="form-control border-0" id="email" placeholder="Email">
-                                                <i class="login__icon fas fa-user"></i>
-                                                <label for="email">Email</label>
-                                            </div>
-                                        </div>
-                                       
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="password" class="form-control border-0" id="password" placeholder="Password">
-                                                <i class="login__icon fas fa-lock"></i>
-                                                <label for="subject">&nbsp;&nbsp; Password</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="form-floating">
-                                                <input type="password" class="form-control border-0" id="password" placeholder="Password">
-                                                <i class="login__icon fas fa-lock"></i>
-                                                <label for="subject">&nbsp;&nbsp;Confirm Password</label>
-                                            </div>
-                                        </div>
-                                    
-                                        <div class="col-12">
-                                            <button class="btn btn-primary w-100 py-3" type="submit">Register</button>
-                                        </div>
-                                        <div class="col-12">
-                                            <button class="btn btn-primary w-100 py-3" type="submit">Login by Google</button>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <div class="form-floating">
-                                                <a routerLink="/login" class="login__link">Login</a>
-                                            </div>
-
-                                            <div class="form-floating">
-                                                <a routerLink="/forgot-password" class="login__link">Forgot Password</a>
-                                            </div>
+<!-- Contact Start -->
+<div class="container-xxl py-5">
+    <div class="container">
 
 
-                                        </div>
-
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                      
+        <div class="bg-light rounded">
+            <div class="row g-0">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+              
+                    <div class="position-relative h-100">
+                        <img class="position-absolute w-100 h-100 rounded" src="../assets/img/ropa.jpg"
+                            style="object-fit: cover;">
                     </div>
                 </div>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="h-100 d-flex flex-column justify-content-center p-5">
+                        <p class="mb-4"><a> ¿Querés ser parte de Cielito Azul? <br> Tenemos buenas ofertas y mucha
+                                inspiración para vos </a>.</p>
+
+
+                        <form class="contact-form" id="contactForm" data-toggle="validator" (ngSubmit)="onSubmit()" [formGroup]="registerForm " autocomplete="on">
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control border-0" id="nombre" formControlName="nombre"  placeholder="Nombre">
+                                        <i class="login__icon fas fa-user"></i>
+                                        <label for="name">Nombre</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control border-0" id="email" formControlName="email"  placeholder="Email">
+                                        <i class="login__icon fas fa-user"></i>
+                                        <label for="email">Email</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control border-0" id="password" formControlName="password"  placeholder="Password">
+                                        <i class="login__icon fas fa-lock"></i>
+                                        <label for="subject">&nbsp;&nbsp; Password</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control border-0" id="password" formControlName="password2"  placeholder="Password">
+                                         
+                                        <i class="login__icon fas fa-lock"></i>                                      
+                                        <label for="subject">&nbsp;&nbsp;Confirm Password</label> 
+
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Register</button>
+                                </div>
+                                <!-- <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Login by Google</button>
+                                </div> -->
+                                <div class="col-sm-12 mb-2">
+                                    <re-captcha id="recaptcha" name="recaptcha" #recaptcha="ngModel" [(ngModel)]="token" required [class.is-invalid]="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)"></re-captcha>
+                                    <div *ngIf="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)" class="invalid-feedback">
+                                      <div *ngIf="recaptcha.errors?.['required']">This field is required.</div>
+                                    </div>
+                                  </div>
+
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <a routerLink="/login" class="login__link">Login</a>
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="rememberme">                                
+                                        &nbsp;&nbsp;<span  class="form-check-label"  for="exampleCheck1">
+                                            Acepto los terminos y condiciones
+                                        </span>
+                                       
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col text-danger">
+                                            <p class="text-danger" *ngIf="campoNoValido('nombre') ">
+                                                El nombre es obligatorio
+                                            </p>
+
+                                            <p class="text-danger" *ngIf="campoNoValido('email') ">
+                                                El email es obligatorio
+                                            </p>
+
+                                            <p class="text-danger" *ngIf="campoNoValido('password') ">
+                                                El password es obligatorio
+                                            </p>
+
+                                            <p class="text-danger" *ngIf="campoNoValido('password2') ">
+                                                El password es obligatorio
+                                            </p>
+
+                                            <p class="text-danger" *ngIf="validarPassword( ) ">
+                                                Los password no coinciden
+                                            </p>
+                                            <p class="text-danger" *ngIf="campoNoValido('rememberme') ">
+                                                Acepta los terminos y condiciones
+                                            </p>
+            
+                                            
+                                      
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <!-- Contact End -->
+    </div>
+</div>
+<!-- Contact End -->
