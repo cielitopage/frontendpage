@@ -37,8 +37,7 @@ public token: string | null = '';
 
   ) { }
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(({ token }) => {
-      console.log("token", token);
+    this.activatedRoute.params.subscribe(({ token }) => {    
       this.token = token;
     });
 
@@ -48,10 +47,8 @@ public token: string | null = '';
   obtenerusuario() {
     this.usuarioService.validaremail(this.token)
       .subscribe({
-        next: (resp:any) => {
-          console.log("resp", resp.usuario);
-          this.resetForm.get('id')?.setValue(resp.usuario.uid);
-          
+        next: (resp:any) => {         
+          this.resetForm.get('id')?.setValue(resp.usuario.uid);          
         },
         error: (err) => {
           Swal.fire({
@@ -63,25 +60,19 @@ public token: string | null = '';
         }
       });
   }
-
-
-
   
 
   resetpassword() {
-
     this.formSubmitted = true;
-
     if (this.resetForm.invalid) {
       return;   
       }
 
-   console.log("resetForm", this.resetForm.value);
 
     this.usuarioService.resetPasswordConfirm(this.resetForm.value)
       .subscribe({
         next: (resp:any) => {
-          console.log("resp", resp);
+       
           Swal.fire({
             title: 'Contraseña actualizada correctamente!',
             text: resp.msg,
@@ -99,14 +90,7 @@ public token: string | null = '';
           });
         }
       });
-      
-
-
   }
-
-
-
-
       
   
 

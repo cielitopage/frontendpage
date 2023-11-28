@@ -62,16 +62,10 @@ export class UsuarioService {
      
   }
 
-  resetPasswordConfirm(usuario:ResetForm) {
-
-    console.log("resetPasswordConfirm service", usuario.password);
-    console.log("resetPasswordConfirm service", usuario.id);
+  resetPasswordConfirm(usuario:ResetForm) {   
     const id = usuario.id;
     const password = usuario.password;
- 
-
-    return this.http.put(`${baseUrl}/resetpasswordconfirm/resetconfirm/${id}`, {password});
- 
+    return this.http.put(`${baseUrl}/resetpasswordconfirm/resetconfirm/${id}`, {password}); 
 
   }
 
@@ -88,11 +82,8 @@ export class UsuarioService {
           } else {
             localStorage.removeItem('email');
           }
-
-
         })
       );
-
   }
 
 
@@ -104,7 +95,6 @@ export class UsuarioService {
           cookiepolicy: 'single_host_origin',
 
         });
-
         resolve();
       });
     })
@@ -117,9 +107,8 @@ export class UsuarioService {
     return this.http.post(`${baseUrl}/login/google`, { token })
       .pipe(
         tap((resp: any) => {
-          console.log("loginGoogle", resp);
+         
           const { email, google, name, rol, picture = '', uid } = resp;
-
           localStorage.setItem('token', resp.token)
           localStorage.setItem('nombre', resp.name);         
           localStorage.setItem('rol', resp.usuario.rol);
@@ -145,8 +134,7 @@ export class UsuarioService {
       }
     }).pipe(
       tap((resp: any) => {
-        const { nombre, email, uid, rol, img, google } = resp.usuario;
-        console.log("authguard", resp);
+        const { nombre, email, uid, rol, img, google } = resp.usuario;       
         //  this.usuario = new Usuario( nombre, email,  uid, rol , img, google);  
         //  this.usuario.imprimirUsuario();
         localStorage.setItem('token', resp.token);

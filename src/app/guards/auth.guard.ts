@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
@@ -23,8 +23,7 @@ export class authGuard implements CanActivate {
     constructor(
       private usuarioService: UsuarioService,
       private router: Router,
-      private http: HttpClient,
-      private ngZone: NgZone
+     
     ) { }
   
     canActivate(): Observable<boolean> | Promise<boolean> | boolean {   

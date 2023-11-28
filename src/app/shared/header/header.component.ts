@@ -14,9 +14,9 @@ declare function customInitFunctionWow(): any;
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
+
 export class HeaderComponent implements OnInit {
-
-
 
 
   constructor(
@@ -24,14 +24,10 @@ export class HeaderComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private usuarioService: UsuarioService
   ) {
-    
+
   }
 
-
-
-
   ngOnInit(): void {
-   
     this.getuser();
     customInitFunction();
     initEasing();
@@ -46,7 +42,7 @@ export class HeaderComponent implements OnInit {
 
 
   logout() {
-   this.usuarioService.logout();
+    this.usuarioService.logout();
     this.router.navigateByUrl('/login');
   }
 
@@ -54,12 +50,9 @@ export class HeaderComponent implements OnInit {
     const token = localStorage.getItem('token') || '';
 
     if (token.length !== 0) {
-      
 
-
-    
       return true;
-    } 
+    }
     return false
   }
 

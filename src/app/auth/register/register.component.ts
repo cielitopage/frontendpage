@@ -40,11 +40,11 @@ export class RegisterComponent implements OnInit {
 
     if (this.registerForm.valid) {
       // Realizar el posteo
-      console.log(this.registerForm.value);
+   
       this.usuarioService.crearUsuario(this.registerForm.value).subscribe(
         {
           next: (resp) => {
-            console.log("respuesta del comp",resp.token);
+          
             localStorage.setItem('token',resp.token!);
             Swal.fire(
               {
@@ -75,6 +75,7 @@ export class RegisterComponent implements OnInit {
     } else {
       // Mostrar mensaje de error
       console.log('Formulario no valido');
+      return;
     }
 
   }

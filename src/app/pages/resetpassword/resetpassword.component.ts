@@ -34,7 +34,6 @@ export class ResetpasswordComponent  implements OnInit {
 
 
   reset() {
-
     this.formSubmitted = true;
 
     if (this.resetForm.invalid) {
