@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 
 declare function customInitFunction(): any;
@@ -15,31 +16,67 @@ declare function customInitFunctionWow(): any;
 })
 export class HeaderComponent implements OnInit {
 
-  
+
+
+
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute  ,
-   
+    private activatedRoute: ActivatedRoute,
+    private usuarioService: UsuarioService
+  ) {
     
-  ) { }
+  }
+
+
+
+
   ngOnInit(): void {
+   
+    this.getuser();
     customInitFunction();
     initEasing();
     initOwlCarousel();
     customInitFunctionWay();
     customInitFunctionWow();
-   
+
   }
 
 
   isMenuCollapsed = true;
 
- 
+
+  logout() {
+   this.usuarioService.logout();
+    this.router.navigateByUrl('/login');
+  }
+
+  getuser() {
+    const token = localStorage.getItem('token') || '';
+
+    if (token.length !== 0) {
+      
 
 
-  // logout(): void {
+    
+      return true;
+    } 
+    return false
+  }
 
-  //   this.router.navigate(['/login']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

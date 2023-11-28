@@ -20,11 +20,17 @@
             <a routerLink="/bebes"   routerLinkActive="activo"  class="nav-item nav-link">Bebes</a>             
             <a routerLink="/blog"    routerLinkActive="activo"  class="nav-item nav-link">Blog</a>            
             <a routerLink="/contact" routerLinkActive="activo"  class="nav-item nav-link">Contact Us</a>
+          
+            
+            
         </div>
          <app-cartstatus ></app-cartstatus>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-        <mat-icon  routerLink="/register" animation="true"  class="favorite">favorite</mat-icon>&nbsp;&nbsp;&nbsp;
        
-        <mat-icon  routerLink="/login" class="login" animation="true" >login</mat-icon> 
+        <mat-icon  routerLink="/register" animation="true"  class="favorite">favorite</mat-icon>&nbsp;&nbsp;&nbsp;
+        <mat-icon  routerLink="/admin"   class="admin"   animation="true" *ngIf="getuser()" >admin_panel_settings</mat-icon>
+        <mat-icon  routerLink="/login"   class="login"   animation="true" *ngIf="!getuser()" >login</mat-icon> 
+        <mat-icon  routerLink="/login"   class="login"   animation="true" *ngIf="getuser()" (click)="logout()" >logout</mat-icon>
+
         <!-- <a routerLink="/login" class="btn btn-primary rounded-pill px-3 ">Log in<i class="fa fa-sign-in-alt ms-3"></i></a> -->
         <!-- <a routerLink="/register" class="btn btn-primary rounded-pill px-3 ">Log in<i class="fa fa-sign-in-alt ms-3"></i></a>
        -->

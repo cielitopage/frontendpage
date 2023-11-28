@@ -11,6 +11,11 @@ import { ChicasComponent } from './pages/chicas/chicas.component';
 import { BebesComponent } from './pages/bebes/bebes.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { ValidateComponent } from './pages/validate/validate.component';
+import { AdminComponent } from './dashboard/admin/admin.component';
+import { authGuard } from './guards/auth.guard';
+import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.component';
+import { ResetpasswordconfirmComponent } from './pages/resetpasswordconfirm/resetpasswordconfirm.component';
+
 
 
 const routes : Routes = [
@@ -21,11 +26,14 @@ const routes : Routes = [
   { path: 'chicos', component:ChicosComponent, data: { title: 'Chicos' }},
   { path: 'chicas', component:ChicasComponent, data: { title: 'Chicas' }},
   { path: 'bebes', component:BebesComponent, data: { title: 'Bebes' }},
+  { path: 'admin', component:AdminComponent,canActivate: [authGuard], data: { title: 'Admin' }},
   { path: 'blog', component:BlogComponent, data: { title: 'Blog' }},
   { path: 'contact', component:ContactComponent, data: { title: 'Contact' }},
   { path: 'login', component:LoginComponent, data: { title: 'Login' }},
   { path: 'register', component:RegisterComponent, data: { title: 'Register' }},
   { path: 'user-actived/:token', component:ValidateComponent, data: { title: 'validate' }},
+  { path: 'user-resetpassword/:token', component:ResetpasswordconfirmComponent, data: { title: 'Reset Password' }},
+  { path: 'resetpassword', component:ResetpasswordComponent, data: { title: 'Reset Password' }},
   { path: '**',component:Page404Component, data: { title: 'Page404' }}
 ];
 

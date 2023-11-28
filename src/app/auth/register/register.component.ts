@@ -11,7 +11,6 @@ import Swal from 'sweetalert2';
 })
 export class RegisterComponent implements OnInit {
 
-
   public formSubmitted = false;
 
   public registerForm = this.fb.group({
@@ -27,17 +26,10 @@ export class RegisterComponent implements OnInit {
   );
 
 
-
   constructor(
     private router: Router,
     private fb: FormBuilder,
     private usuarioService: UsuarioService
-
-    
-
-
-
-
   ) { }
 
   ngOnInit(): void {
@@ -57,7 +49,7 @@ export class RegisterComponent implements OnInit {
             Swal.fire(
               {
                 title: 'Te has registrado correctamente',
-                text: `En breve recibirás un correo electrónico a${this.registerForm.get('email')?.value}para validar tu cuenta`,
+                text: `En breve recibirás un correo electrónico a " ${this.registerForm.get('email')?.value} "para validar tu cuenta`,
                 icon: 'success',
                 confirmButtonText: 'Aceptar',
                 confirmButtonColor: '#3085d6',  

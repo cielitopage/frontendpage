@@ -33,6 +33,12 @@ import { Banner3x2Component } from './shared/banner3x2/banner3x2.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ValidateComponent } from './pages/validate/validate.component';
+import { AdminComponent } from './dashboard/admin/admin.component';
+import { AdminusersComponent } from './dashboard/adminusers/adminusers.component';
+import { AdmincategoriasComponent } from './dashboard/admincategorias/admincategorias.component';
+import { AdminproductosComponent } from './dashboard/adminproductos/adminproductos.component';
+import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.component';
+import { ResetpasswordconfirmComponent } from './pages/resetpasswordconfirm/resetpasswordconfirm.component';
 
 
 
@@ -64,7 +70,13 @@ import { ValidateComponent } from './pages/validate/validate.component';
     BanneroffComponent,
     Banner3x2Component,
     LoaderComponent,
-    ValidateComponent,  
+    ValidateComponent,
+    AdminComponent,
+    AdminusersComponent,
+    AdmincategoriasComponent,
+    AdminproductosComponent,
+    ResetpasswordComponent,
+    ResetpasswordconfirmComponent,  
 
   ],
   imports: [

@@ -1,108 +1,111 @@
-.activo {   
+.activo {
     font-weight: bold !important;
     font-size: 1.3em;
     font-style: cursive;
-    color: #0f3764 !important;  
+    color: #0f3764 !important;
     margin-right: 10px !important;
     padding-right: 20px !important;
     padding-left: 20px !important;
     padding-top: 10px !important;
-    padding-bottom: 10px !important;  
+    padding-bottom: 10px !important;
     transition: all 0.5s ease-out;
     scroll-behavior: smooth;
-    cursor: pointer;   
+    cursor: pointer;
     text-shadow: 0px 0px 10px #0f376467;
     text-emphasis-color: #f2f2f3;
-    
-    }
-    .login{
-        padding-right: 12px;   
-        color: #030303 !important;
-        cursor: pointer;   
-        transition: all 0.5s ease-out;
-        scroll-behavior: smooth;
-       
-       
-    }
-    .login:hover{
-        color: #0f3764 !important;
-        text-shadow: 0px 0px 10px #f2f2f3;
-        text-emphasis-color: #f2f2f3;
 
-       
-
-    }
+}
+.login {
+    padding-right: 12px;
+    color: #030303 !important;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+    scroll-behavior: smooth;
+}
+.login:hover {
+    color: #0f3764 !important;
+    text-shadow: 0px 0px 10px #f2f2f3;
+    text-emphasis-color: #f2f2f3;
+}
 
 
-    .navbar-toggler {
-        padding: 0.15rem 0.75rem;
-        font-size: 1rem;
-        line-height: 1;
-        background-color: transparent;
-        border: 1px solid transparent;
-        border-radius: 0.25rem;
-    }
-    .favorite{
-        color: #6A679E!important;
-        cursor: pointer;   
-        transition: all 0.5s ease-in-out !important;
-        font-size: 25px;       
-    }
-    .favorite:hover{
-        color: rgb(247, 1, 1) !important;
-        text-shadow: 0px 0px 10px #f2f2f3;
-        text-emphasis-color: #f2f2f3;
-        font-size: 26px;
-        
+.navbar-toggler {
+    padding: 0.15rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
 
-    }
-    .logo-dark{
-          
-        margin-left: 10px;
-        margin-top: 10px;
-        height: 35px;
-    }
+.favorite {
+    color: #6A679E !important;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out !important;
+    font-size: 25px;
+}
+.favorite:hover {
+    color: rgb(247, 1, 1) !important;
+    text-shadow: 0px 0px 10px #f2f2f3;
+    text-emphasis-color: #f2f2f3;
+    font-size: 26px;
+}
+.admin{
+    color: #6A679E !important;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out !important;
+    font-size: 25px;
+}
+.admin:hover {
+    color: rgb(247, 1, 1) !important;
+    text-shadow: 0px 0px 10px #f2f2f3;
+    text-emphasis-color: #f2f2f3;
+    font-size: 26px;
+}
+.logo-dark {
+
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 35px;
+}
 
 
-  @media screen and (max-width: 718px) {
-    
+@media screen and (max-width: 718px) {
+
     .activo {
         padding-right: 2px;
         font-weight: bold !important;
     }
-    .logo-dark{
 
-          
+    .logo-dark {
+
+
         margin-left: -5px;
         margin-top: 5px;
         height: 20px;
     }
-    .login{
-        padding-right: 35px;   
+
+    .login {
+        padding-right: 35px;
         color: #030303 !important;
-        cursor: pointer;   
+        cursor: pointer;
         transition: all 0.5s ease-out;
         margin-top: -9px;
 
         font-size: 23px;
-      
-        
-       
 
-    
+
+
+
+
     }
-    
+
     .navbar-toggler {
-     
-      
+
+
         line-height: 1;
         background-color: transparent;
         border: 1px solid transparent;
         border-radius: 0.25rem;
     }
 }
-    
-   
-  
-
-
