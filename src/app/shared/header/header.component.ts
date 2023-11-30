@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
+import { GlobalService } from 'src/app/global.service';
+
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 
@@ -18,24 +20,34 @@ declare function customInitFunctionWow(): any;
 
 export class HeaderComponent implements OnInit {
 
+  public img = '';
+  public usuario = '';
+
+
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private usuarioService: UsuarioService
-  ) {
+    private usuarioService: UsuarioService,
+    private globalService: GlobalService
+  ) {      
+  
 
   }
 
-  ngOnInit(): void {
-    this.getuser();
+  ngOnInit() {       
+
+    this.getuser();     
     customInitFunction();
     initEasing();
     initOwlCarousel();
     customInitFunctionWay();
-    customInitFunctionWow();
+    customInitFunctionWow();  
+  
 
   }
+
+
 
 
   isMenuCollapsed = true;
@@ -46,13 +58,15 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/login');
   }
 
+
+
   getuser() {
-    const token = localStorage.getItem('token') || '';
-
-    if (token.length !== 0) {
-
-      return true;
-    }
+    this.img=  this.usuarioService.usuarioActual?.imagenUrl;
+    this.usuario=  this.usuarioService.usuarioActual?.nombre;      
+    const token = localStorage.getItem('token') || '';  
+    
+    if (token.length !== 0) {   
+          return true;    }
     return false
   }
 
@@ -64,12 +78,20 @@ export class HeaderComponent implements OnInit {
 
 
 
+  
 
 
 
-
-
-
-
-
+  
 }
+
+
+
+
+
+
+
+
+
+
+

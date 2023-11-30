@@ -1,8 +1,10 @@
 
 .banner {
     width: 100%;
-    height: 30vh;
-    background:url(../../../assets/img/bannerrojos.png);    
+    height: 39vh;
+    background:url(../../../assets/img/navidad3cuotassininteres.png) no-repeat;
+    background-position:top center;
+
     background-size: cover;
     font-size: 60px;
     color: #fff;

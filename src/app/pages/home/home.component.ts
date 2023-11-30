@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from 'src/app/services/usuario.service';
 declare function customInitFunction(): any;
 
 @Component({
@@ -8,10 +9,22 @@ declare function customInitFunction(): any;
 })
 export class HomeComponent implements OnInit{
 
-  constructor() { }
+  constructor(
+    private usuarioService: UsuarioService
+  ) { }
 
   ngOnInit(): void {
-    customInitFunction();
+    customInitFunction(); 
+ 
+    this.usuarioService.validarToken().subscribe(resp => {
+      console.log("resp",resp);     
+      console.log("img",this.usuarioService.usuarioActual);      
+    } )
   }
+
+
+
+  
+
 
 }

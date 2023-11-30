@@ -7,6 +7,7 @@ import { LoginForm } from '../auth/interfaces/login-form-interfaces';
 import { ResetForm } from '../auth/interfaces/reset-form-interfaces';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { UsuarioModel } from '../models/usuario.model';
 
 declare const gapi: any;
 declare const google: any;
@@ -21,14 +22,16 @@ const baseUrl: string = environment.baseUrl;
 export class UsuarioService {
 
   public auth2: any;
-  public usuario!: any;
-
+  public usuarioActual: UsuarioModel = new UsuarioModel('', '', '', '', '', false, false, '');
 
 
   constructor(
     private http: HttpClient,
     private router: Router,
-  ) { }
+  ) {
+
+
+  }
 
 
 
@@ -57,15 +60,15 @@ export class UsuarioService {
 
   resetPassword(email: any) {
     console.log("resetPassword", email);
-     return this.http.put(`${baseUrl}/resetpassword/reset`, email);
-  
-     
+    return this.http.put(`${baseUrl}/resetpassword/reset`, email);
+
+
   }
 
-  resetPasswordConfirm(usuario:ResetForm) {   
+  resetPasswordConfirm(usuario: ResetForm) {
     const id = usuario.id;
     const password = usuario.password;
-    return this.http.put(`${baseUrl}/resetpasswordconfirm/resetconfirm/${id}`, {password}); 
+    return this.http.put(`${baseUrl}/resetpasswordconfirm/resetconfirm/${id}`, { password });
 
   }
 
@@ -73,12 +76,11 @@ export class UsuarioService {
   login(usuario: LoginForm | any) {
     return this.http.post(`${baseUrl}/login`, usuario)
       .pipe(
-        tap((resp: any) => {
+        tap((resp: any) => {   
           localStorage.setItem('token', resp.token);
-          localStorage.setItem('rol', resp.rol);
-
           if (usuario.rememberme) {
-            localStorage.setItem('email', usuario.email);
+            localStorage.setItem('email', usuario.email);      
+
           } else {
             localStorage.removeItem('email');
           }
@@ -93,7 +95,6 @@ export class UsuarioService {
         this.auth2 = gapi.auth2.init({
           client_id: '1024348454013-i936bdigj86lup1kb88ecevv9r8rahl6.apps.googleusercontent.com',
           cookiepolicy: 'single_host_origin',
-
         });
         resolve();
       });
@@ -103,15 +104,11 @@ export class UsuarioService {
 
 
   loginGoogle(token: string, rememberme: any) {
-
     return this.http.post(`${baseUrl}/login/google`, { token })
       .pipe(
         tap((resp: any) => {
-         
           const { email, google, name, rol, picture = '', uid } = resp;
-          localStorage.setItem('token', resp.token)
-          localStorage.setItem('nombre', resp.name);         
-          localStorage.setItem('rol', resp.usuario.rol);
+          localStorage.setItem('token', resp.token)     
 
           if (rememberme) {
             localStorage.setItem('email', resp.usuario.email);
@@ -127,40 +124,34 @@ export class UsuarioService {
 
   validarToken(): Observable<boolean> {
     const token = localStorage.getItem('token') || '';
-
     return this.http.get(`${baseUrl}/login/renew`, {
       headers: {
         'x-token': token
       }
     }).pipe(
-      tap((resp: any) => {
-        const { nombre, email, uid, rol, img, google } = resp.usuario;       
-        //  this.usuario = new Usuario( nombre, email,  uid, rol , img, google);  
-        //  this.usuario.imprimirUsuario();
+      map((resp: any) => {
+        const { nombre, email, rol, img = '', telefono, estado, google, uid } = resp.usuario;
+        this.usuarioActual = new UsuarioModel(nombre, email, rol, img, telefono, estado, google, uid);      
         localStorage.setItem('token', resp.token);
-
+        return true;
       }),
-      map(resp => true),
       catchError(error => of(false))
     );
 
   }
 
   logout() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('rol'); 
-    localStorage.removeItem('nombre');
-    localStorage.removeItem('img');
-  
+    localStorage.removeItem('token');  
+
     if (this.auth2) {
       this.auth2.signOut().then(() => {
         console.log("User signed out.");
       });
-    }  
+    }
   }
 
 
- 
+
 
 }
 

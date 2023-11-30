@@ -6,7 +6,7 @@
       <!--  <h1 class="m-0 text-secondary">Cielito Azul</h1>   <i class="fa fa-cloud text-info me-2"> </i> -->
     </a>
  
-    <app-cartstatus class="navbar-toggler "></app-cartstatus>
+    <app-cartstatus class="navbar-toggler "></app-cartstatus> 
    
     <button type="button" class="navbar-toggler " data-bs-toggle="collapse" data-bs-target="#navbarCollapse" [ngClass]="{'collapsed': isMenuCollapsed}" (click)="isMenuCollapsed = !isMenuCollapsed">
         <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,13 @@
          <app-cartstatus ></app-cartstatus>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
        
         <mat-icon  routerLink="/register" animation="true"  class="favorite">favorite</mat-icon>&nbsp;&nbsp;&nbsp;
-        <mat-icon  routerLink="/admin"   class="admin"   animation="true" *ngIf="getuser()" >admin_panel_settings</mat-icon>
+        <mat-icon  routerLink="/admin"   class="admin"   animation="true" *ngIf="getuser()" >admin_panel_settings</mat-icon>&nbsp;&nbsp;
+        <div >
+          <img  class="avatar wow fadeIn" data-wow-delay="1s"  *ngIf="getuser()" [src]="img"  >
+          <span class="text-center wow fadeIn" data-wow-delay="1s" *ngIf="getuser()" >
+            {{usuario | slice:0:10}}  {{usuario.length > 10 ? '...' : ''}}
+          </span>
+        </div>&nbsp;&nbsp;
         <mat-icon  routerLink="/login"   class="login"   animation="true" *ngIf="!getuser()" >login</mat-icon> 
         <mat-icon  routerLink="/login"   class="login"   animation="true" *ngIf="getuser()" (click)="logout()" >logout</mat-icon>
 

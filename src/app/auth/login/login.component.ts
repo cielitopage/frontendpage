@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this.usuarioService.loginGoogle(response.credential, this.loginForm.get('rememberme')?.value)
       .subscribe(resp => {      
         Swal.fire('Bienvenido', resp.name, 'success');
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/admin');
       }
       );
   }
@@ -82,17 +82,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
     // Realizar el posteo    
     this.usuarioService.login(this.loginForm.value)
       .subscribe({
-        next: (resp) => {
-       
-          if (this.loginForm.get('rememberme')?.value) {
-            localStorage.setItem('email', resp.usuario.email);
-            localStorage.setItem('nombre', resp.usuario.nombre);
-            localStorage.setItem('img', resp.usuario.img);
-          } else {
-            localStorage.removeItem('email');
-          }
+        next: (resp) => {       
+         
           Swal.fire('Bienvenido', resp.usuario.nombre, 'success');
-          this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/admin');
         },
         error: (err) => {
           Swal.fire('Error', err.error.msg, 'error');

@@ -1,24 +1,47 @@
+import { environment } from "src/environments/environment";
 
 
 
-export class UsuarioModel {
+const baseUrl = environment.baseUrl;
+
+export class UsuarioModel { 
+   
     
-
-    constructor(        
+    constructor(     
+        
         public nombre: string,
-        public email: string,       
-        public emailVerified: boolean,
+        public email: string,
+        public rol : string,
+        public img: string ,
         public telefono?: string,
-        public estado? : boolean,
-        public password?: string,
-        public rol? : string,
-        public img?: string,
+        public estado? : boolean,       
         public google?: boolean,
         public uid?: string,
-        public neew? : boolean,     
+       
+        ) {      
+     
+       
+    }
+    
 
-    ) {   }
+    
 
+   get imagenUrl(){
+        
+        if (!this.img) {
+            return `${baseUrl}/uploads/usuarios/no-image`;
+        } else if (this.img.includes('https')) {
+            return this.img;
+        } else if (this.img) {
+            return this.img;
+        } else {
+            return `${baseUrl}/uploads/usuarios/no-image`;
+        }
+  
+  }
+
+
+ 
 
 
 

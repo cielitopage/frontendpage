@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carrousel',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./carrousel.component.css']
 })
 export class CarrouselComponent {
+
+  constructor(
+    private router: Router,
+  ) { }
 
 }

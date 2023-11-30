@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-about',
@@ -13,11 +14,17 @@ export class AboutComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private usuarioService: UsuarioService,
   ) { }
 
   ngOnInit(): void {
 
-
+ 
+    this.usuarioService.validarToken().subscribe(resp => {
+      console.log("resp",resp);     
+      console.log("img",this.usuarioService.usuarioActual);      
+    } )
 }
 
 
