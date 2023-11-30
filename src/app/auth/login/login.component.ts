@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this.usuarioService.loginGoogle(response.credential, this.loginForm.get('rememberme')?.value)
       .subscribe(resp => {      
         Swal.fire('Bienvenido', resp.name, 'success');
-        this.router.navigateByUrl('/admin');
+        this.router.navigateByUrl('/admin-user');
       }
       );
   }
@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
         next: (resp) => {       
          
           Swal.fire('Bienvenido', resp.usuario.nombre, 'success');
-          this.router.navigateByUrl('/admin');
+          this.router.navigateByUrl('/admin-user');
         },
         error: (err) => {
           Swal.fire('Error', err.error.msg, 'error');

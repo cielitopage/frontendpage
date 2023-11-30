@@ -31,8 +31,6 @@ export class HeaderComponent implements OnInit {
     private usuarioService: UsuarioService,
     private globalService: GlobalService
   ) {      
-  
-
   }
 
   ngOnInit() {       
@@ -44,9 +42,7 @@ export class HeaderComponent implements OnInit {
     customInitFunctionWay();
     customInitFunctionWow();  
   
-
   }
-
 
 
 
@@ -69,6 +65,15 @@ export class HeaderComponent implements OnInit {
           return true;    }
     return false
   }
+
+
+  admin() {
+    if (this.usuarioService.usuarioActual?.rol === 'SUPER_ADMIN_ROLE') {
+      return true;
+    }
+    return false;
+  }
+  
 
 
 

@@ -6,7 +6,7 @@ import { Observable, catchError, map, of, tap } from 'rxjs';
 import { LoginForm } from '../auth/interfaces/login-form-interfaces';
 import { ResetForm } from '../auth/interfaces/reset-form-interfaces';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { Data, Router } from '@angular/router';
 import { UsuarioModel } from '../models/usuario.model';
 
 declare const gapi: any;
@@ -22,7 +22,7 @@ const baseUrl: string = environment.baseUrl;
 export class UsuarioService {
 
   public auth2: any;
-  public usuarioActual: UsuarioModel = new UsuarioModel('', '', '', '', '', false, false, '');
+  public usuarioActual: UsuarioModel = new UsuarioModel('', '', '', '', '', '',false, false, '');
 
 
   constructor(
@@ -33,6 +33,13 @@ export class UsuarioService {
 
   }
 
+  get token(): string {
+    return localStorage.getItem('token') || '';
+  }
+
+  get uid(): string {
+    return this.usuarioActual.uid || '';
+  }
 
 
   getUsuarios() {
@@ -130,8 +137,8 @@ export class UsuarioService {
       }
     }).pipe(
       map((resp: any) => {
-        const { nombre, email, rol, img = '', telefono, estado, google, uid } = resp.usuario;
-        this.usuarioActual = new UsuarioModel(nombre, email, rol, img, telefono, estado, google, uid);      
+        const { nombre, email, rol, img = '', telefono, fechanac,estado, google, uid } = resp.usuario;
+        this.usuarioActual = new UsuarioModel(nombre, email, rol, img, telefono,fechanac, estado, google, uid);      
         localStorage.setItem('token', resp.token);
         return true;
       }),
@@ -149,6 +156,21 @@ export class UsuarioService {
       });
     }
   }
+
+  actualizarUsuario(usuario: { nombre: any, email: any, telefono: any, fechanac:any ,rol:any}) {
+   
+    
+    return this.http.put(`${baseUrl}/usuarios/${this.uid}`, usuario, {
+      headers: {
+        'x-token': this.token
+      }
+    });
+  }
+
+
+
+ 
+
 
 
 

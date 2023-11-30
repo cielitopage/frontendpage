@@ -23,7 +23,7 @@ export class AboutComponent implements OnInit {
  
     this.usuarioService.validarToken().subscribe(resp => {
       console.log("resp",resp);     
-      console.log("img",this.usuarioService.usuarioActual);      
+      
     } )
 }
 

@@ -20,10 +20,10 @@ export class AppComponent  implements  OnInit {
 
   ngOnInit() {
   customInitFunction();
-  // initEasing();
-  // initOwlCarousel();
-  // customInitFunctionWay();
-  // customInitFunctionWow();
+  initEasing();
+  initOwlCarousel();
+  customInitFunctionWay();
+  customInitFunctionWow();
 
   }
 }

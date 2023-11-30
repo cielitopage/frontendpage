@@ -39,6 +39,7 @@ import { AdmincategoriasComponent } from './dashboard/admincategorias/admincateg
 import { AdminproductosComponent } from './dashboard/adminproductos/adminproductos.component';
 import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.component';
 import { ResetpasswordconfirmComponent } from './pages/resetpasswordconfirm/resetpasswordconfirm.component';
+import { PerfilusuarioComponent } from './dashboard/perfilusuario/perfilusuario.component';
 
 
 
@@ -76,7 +77,8 @@ import { ResetpasswordconfirmComponent } from './pages/resetpasswordconfirm/rese
     AdmincategoriasComponent,
     AdminproductosComponent,
     ResetpasswordComponent,
-    ResetpasswordconfirmComponent,  
+    ResetpasswordconfirmComponent,
+    PerfilusuarioComponent,  
 
   ],
   imports: [

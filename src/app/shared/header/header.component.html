@@ -27,12 +27,10 @@
          <app-cartstatus ></app-cartstatus>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
        
         <mat-icon  routerLink="/register" animation="true"  class="favorite">favorite</mat-icon>&nbsp;&nbsp;&nbsp;
-        <mat-icon  routerLink="/admin"   class="admin"   animation="true" *ngIf="getuser()" >admin_panel_settings</mat-icon>&nbsp;&nbsp;
-        <div >
-          <img  class="avatar wow fadeIn" data-wow-delay="1s"  *ngIf="getuser()" [src]="img"  >
-          <span class="text-center wow fadeIn" data-wow-delay="1s" *ngIf="getuser()" >
-            {{usuario | slice:0:10}}  {{usuario.length > 10 ? '...' : ''}}
-          </span>
+        <mat-icon  routerLink="/admin"   class="admin"   animation="true"  *ngIf="admin()"  >admin_panel_settings</mat-icon>&nbsp;&nbsp;
+        <div class="text-center wow fadeIn" *ngIf="getuser()">         
+          <img  class="avatar wow fadeIn" data-wow-delay="1s"   [src]="img"  >
+          <a routerLink="/admin-user"   >Perfil de {{usuario | slice:0:10}}  {{usuario.length > 10 ? '...' : ''}}</a>       
         </div>&nbsp;&nbsp;
         <mat-icon  routerLink="/login"   class="login"   animation="true" *ngIf="!getuser()" >login</mat-icon> 
         <mat-icon  routerLink="/login"   class="login"   animation="true" *ngIf="getuser()" (click)="logout()" >logout</mat-icon>

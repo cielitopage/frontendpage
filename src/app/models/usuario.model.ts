@@ -14,6 +14,7 @@ export class UsuarioModel {
         public rol : string,
         public img: string ,
         public telefono?: string,
+        public fechanac?: string,
         public estado? : boolean,       
         public google?: boolean,
         public uid?: string,

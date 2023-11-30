@@ -14,11 +14,12 @@ export class HomeComponent implements OnInit{
   ) { }
 
   ngOnInit(): void {
-    customInitFunction(); 
+
  
     this.usuarioService.validarToken().subscribe(resp => {
       console.log("resp",resp);     
-      console.log("img",this.usuarioService.usuarioActual);      
+ 
+      
     } )
   }
 
