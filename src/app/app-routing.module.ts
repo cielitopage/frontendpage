@@ -30,7 +30,7 @@ const routes : Routes = [
   { path: 'chicos', component:ChicosComponent, data: { title: 'Chicos' }},
   { path: 'chicas', component:ChicasComponent, data: { title: 'Chicas' }},
   { path: 'bebes', component:BebesComponent, data: { title: 'Bebes' }},
-  { path: 'admin', component:DashboardComponent,canActivate: [authGuardAdmin ], data: { title: 'Admin' }},
+  { path: 'admin', component:AdminComponent,canActivate: [authGuard,authGuardAdmin ], data: { title: 'Admin' }},
   { path: 'admin-user', component:AdminusersComponent,canActivate: [authGuard], data: { title: 'Actualizar Perfil Usuario' }},
   { path: 'perfil-usuario', component:PerfilusuarioComponent,canActivate: [authGuard], data: { title: 'Perfil Usuario' }},
   { path: 'blog', component:BlogComponent, data: { title: 'Blog' }},

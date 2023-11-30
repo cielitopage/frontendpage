@@ -28,7 +28,7 @@ export class FileuploadService {
 
       const data = await resp.json();    
    
-      if ( data ) {      
+      if ( data.ok ) {      
         return data.nombreArchivo;
       }
       return false;    
