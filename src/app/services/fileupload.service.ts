@@ -15,7 +15,7 @@ export class FileuploadService {
   async fileUpload(  archivo: File, tipo: 'productos'|'usuarios'|'categorias'|'articulos',    id: string,) {     
 
     try {
-      const url = `${ base_url }/uploads/usuario/${ tipo }/${ id }`;
+      const url = `${ base_url }/uploads/${ tipo }/${ id }`;
       const formData = new FormData();
       formData.append('imagen', archivo);
 
