@@ -1,20 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RegisterForm } from '../auth/interfaces/register-form-interfaces';
-import { environment } from '../../environments/environment';
+
 import { Observable, catchError, map, of, tap } from 'rxjs';
 import { LoginForm } from '../auth/interfaces/login-form-interfaces';
 import { ResetForm } from '../auth/interfaces/reset-form-interfaces';
 import Swal from 'sweetalert2';
 import { Data, Router } from '@angular/router';
 import { UsuarioModel } from '../models/usuario.model';
+import { environment } from 'src/environments/environment';
 
 declare const gapi: any;
 declare const google: any;
 
 
 
-const baseUrl: string = environment.baseUrl;
+const baseUrl = environment.baseUrl;
 
 @Injectable({
   providedIn: 'root'

@@ -2,9 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable, tap } from 'rxjs';
-import { environment } from 'src/environments/environment';
+
 import Swal from 'sweetalert2';
 import { UsuarioService } from '../services/usuario.service';
+import { environment } from 'src/environments/environment';
 
 const baseUrl = environment.baseUrl;
 
