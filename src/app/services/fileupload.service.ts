@@ -10,8 +10,7 @@ export class FileuploadService {
 
   constructor() { }
 
-
-  async fileUpload(  archivo: File, tipo: 'usuarios'|'categorias'|'articulos',   id: string,) {     
+  async fileUpload(  archivo: File, tipo: 'productos'|'usuarios'|'categorias'|'articulos',    id: string,) {     
 
     try {
       const url = `${ baseUrl }/uploads/usuario/${ tipo }/${ id }`;
@@ -26,21 +25,19 @@ export class FileuploadService {
         body: formData
       });
 
-      const data = await resp.json();    
-   
+      const data = await resp.json();
+      console.log(data);
       if ( data.ok ) {
         return data.nombreArchivo;
-      } else {
-        console.log(data.msg);
-        return false;
       }
-      
+      return false;    
     } catch (err) {
       console.log(err);     
     }
   }
 
 }
+
 
 
 
