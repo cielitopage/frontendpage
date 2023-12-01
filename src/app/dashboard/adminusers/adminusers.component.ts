@@ -86,7 +86,7 @@ cambiarImagen(event: any) {
 
 subirImagen() {
 
-  this.uploadService.fileUpload(this.imagenSubir, 'usuarios', this.usuarioActual.uid)
+  this.uploadService.fileUpload(this.imagenSubir, 'usuarios', this.usuarioActual.uid as string)
 
 
 }

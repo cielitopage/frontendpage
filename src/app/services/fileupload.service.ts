@@ -11,7 +11,7 @@ export class FileuploadService {
   constructor() { }
 
 
-  async fileUpload(  archivo: File, tipo: 'usuarios'|'categorias'|'articulos',    id: any,) {     
+  async fileUpload(  archivo: File, tipo: 'usuarios'|'categorias'|'articulos',   id: string,) {     
 
     try {
       const url = `${ baseUrl }/uploads/usuario/${ tipo }/${ id }`;
