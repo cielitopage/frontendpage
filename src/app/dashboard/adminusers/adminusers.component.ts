@@ -19,7 +19,7 @@ export class AdminusersComponent  implements OnInit {
   public fechanacimiento = moment(this.usuarioActual.fechanac).format('YYYY-MM-DD');
   public imagenSubir!: File;
   public imagenTemp: string | ArrayBuffer | null = null;
-  public imagen = this.usuarioActual.img;
+
   public cambiarImagentemp = false;
 
   // public imagenTemp: any[] = [];
@@ -47,16 +47,26 @@ constructor(
 
 ) {
 
+
+
  }
 
 ngOnInit(): void {
+
+
+  this.usuarioService.validarToken().subscribe(resp => {
+    console.log("resp",resp);     
+
+    this.usuarioService.usuarioActual = this.usuarioActual;
+  
+  } )
 
  
 }
 
 cambiarImagen(event: any) {
   const file = event.target.files[0];
-  this.cambiarImagentemp = true;
+
   if (!file) {
     return;
   }
@@ -85,25 +95,34 @@ cambiarImagen(event: any) {
 
 
 subirImagen() {
-
-  this.uploadService.fileUpload(this.imagenSubir, 'usuarios', this.usuarioService.usuarioActual.uid as string)
-
-
-      .then( img => {   
-              this.usuarioActual.img = img;
-
-              setTimeout(() => {
-                Swal.fire('Actualizado', 'Imagen actualizada correctamente', 'success');
-           
-              }
-              , 1000);             
-              console.log(img);
-            }
-
-            );
-       
-
-
+  this.uploadService
+  .fileUpload(this.imagenSubir, 'usuarios', this.usuarioService.usuarioActual.uid as string)
+  .then(img  => {
+    this.usuarioActual.img = img;
+    Swal.fire(
+      {
+        title: 'Imagen actualizada correctamente',
+        text: `Has actualizado tu imagen de perfil en nuestra base de datos`,
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#3085d6',  
+        allowOutsideClick: false,
+        allowEscapeKey: false })
+  }
+  )
+  .catch(err => {
+    Swal.fire(
+      {
+        title: 'Error',
+        text: err.error.msg,
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+        confirmButtonColor: '#3085d6',  
+        allowOutsideClick: false,
+        allowEscapeKey: false })
+  }
+  );
+  
 }
 
 onSubmit() {
@@ -117,19 +136,12 @@ onSubmit() {
   .subscribe(
     {
       next: (resp) => {
-
         const { usuario}:any = resp
-
         this.usuarioActual.nombre = usuario.nombre;
         this.usuarioActual.email = usuario.email;
         this.usuarioActual.telefono = usuario.telefono;
         this.usuarioActual.fechanac = usuario.fechanac;
-        this.usuarioActual.rol = usuario.rol;
-   
-
-
-
-     
+        this.usuarioActual.rol = usuario.rol;    
 
        console.log("respu",resp );
         Swal.fire(
@@ -142,8 +154,7 @@ onSubmit() {
             allowOutsideClick: false,
             allowEscapeKey: false })
 
-            
-       
+                   
       },
       error: (err) => {
         Swal.fire(
@@ -157,9 +168,7 @@ onSubmit() {
             allowEscapeKey: false })
       }
     }
-  )
-
-  
+  );  
 }
 
 campoNoValido(campo: string): boolean {

@@ -41,6 +41,13 @@ export class HeaderComponent implements OnInit {
     initOwlCarousel();
     customInitFunctionWay();
     customInitFunctionWow();  
+
+    
+  this.usuarioService.validarToken().subscribe(resp => {
+    console.log("resp",resp);     
+   this.usuarioService.usuarioActual;
+  } )
+ 
   
   }
 

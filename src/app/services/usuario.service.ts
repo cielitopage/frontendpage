@@ -128,7 +128,7 @@ export class UsuarioService {
       );
 
   }
-
+ 
 
   validarToken(): Observable<boolean> {
     const token = localStorage.getItem('token') || '';
@@ -139,7 +139,9 @@ export class UsuarioService {
     }).pipe(
       map((resp: any) => {
         const { nombre, email, rol, img = '', telefono, fechanac,estado, google, uid } = resp.usuario;
-        this.usuarioActual = new UsuarioModel(nombre, email, rol, img, telefono,fechanac, estado, google, uid);      
+        this.usuarioActual = new UsuarioModel(nombre, email, rol, img, telefono,fechanac, estado, google, uid);  
+        
+        
         localStorage.setItem('token', resp.token);
         return true;
       }),

@@ -12,10 +12,10 @@ export class FileuploadService {
   constructor() { }
 
 
-  async fileUpload(  archivo: File, tipo: 'productos'|'usuarios'|'categorias'|'articulos',    id: string,) {     
+  async fileUpload(  archivo: File, tipo: 'productos'|'usuarios'|'categorias'|'articulos', id: string) {     
 
     try {
-      const url = `${ base_url }/uploads/${ tipo }/${ id }`;
+      const url = `${ base_url }/upload/${ tipo }/${ id }`;
       const formData = new FormData();
       formData.append('imagen', archivo);
 
@@ -28,10 +28,11 @@ export class FileuploadService {
       });
 
       const data = await resp.json();
-      console.log(data);
-      if ( data.ok ) {
+     
+      if ( data ) {
         return data.nombreArchivo;
       }
+      console.log(data)
       return false;    
     } catch (err) {
       console.log(err);     
