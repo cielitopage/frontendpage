@@ -86,7 +86,22 @@ cambiarImagen(event: any) {
 
 subirImagen() {
 
-  this.uploadService.fileUpload(this.imagenSubir, 'usuarios', this.usuarioActual.uid as string)
+  this.uploadService.fileUpload(this.imagenSubir, 'usuarios', this.usuarioService.usuarioActual.uid as string)
+
+
+      .then( img => {   
+              this.usuarioActual.img = img;
+
+              setTimeout(() => {
+                Swal.fire('Actualizado', 'Imagen actualizada correctamente', 'success');
+           
+              }
+              , 1000);             
+              console.log(img);
+            }
+
+            );
+       
 
 
 }
