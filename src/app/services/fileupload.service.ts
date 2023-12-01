@@ -30,8 +30,15 @@ export class FileuploadService {
         body: formData
       
       });
-      console.log( archivo);
-      console.log(resp);
+
+      const data = await resp.json();
+      console.log(data);
+      if ( data.ok ) {
+        return data.nombreArchivo;
+      }
+      return false;
+      
+    
       // const url = `${ baseUrl }/uploads/usuario/${ tipo }/${ id }`;
       // const formData = new FormData();
       // formData.append('imagen', archivo);
