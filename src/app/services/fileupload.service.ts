@@ -28,10 +28,13 @@ export class FileuploadService {
 
       const data = await resp.json();    
    
-      if ( data.ok ) {      
+      if ( data.ok ) {
         return data.nombreArchivo;
+      } else {
+        console.log(data.msg);
+        return false;
       }
-      return false;    
+      
     } catch (err) {
       console.log(err);     
     }
