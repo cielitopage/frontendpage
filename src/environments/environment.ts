@@ -1,7 +1,7 @@
 
 
 export const environment = {
-    production: false,
+    production: true,
        
   baseUrl: 'https://backendyagg-dev-ansq.1.us-1.fl0.io/api'
      // baseUrl: 'https://backendshopcielito.vercel.app/api'
