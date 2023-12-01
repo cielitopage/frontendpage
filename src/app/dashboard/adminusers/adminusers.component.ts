@@ -88,47 +88,7 @@ subirImagen() {
 
   this.uploadService.fileUpload(this.imagenSubir, 'usuarios', this.usuarioActual.uid)
 
-    .then((img) => {  
 
-    
-      this.usuarioActual.img = img;
-      this.imagen = img;
-      this.cambiarImagentemp = false;
-   
-      Swal.fire(
-        {
-          title: 'Imagen actualizada correctamente',
-          text: `Has actualizado tu imagen en nuestra base de datos`,
-          icon: 'success',
-          confirmButtonText: 'Aceptar',
-          confirmButtonColor: '#3085d6',  
-          allowOutsideClick: false,
-          allowEscapeKey: false ,
-          timer: 2000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-          }
-
-        })
-
-       
-      
-        
-    })
-    .catch((err) => {
-      console.log(err);
-      Swal.fire(
-        {
-          title: 'Error',
-          text: err.error.msg,
-          icon: 'error',
-          confirmButtonText: 'Aceptar',
-          confirmButtonColor: '#3085d6',  
-          allowOutsideClick: false,
-          allowEscapeKey: false })
-    });
 }
 
 onSubmit() {
