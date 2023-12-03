@@ -22,6 +22,8 @@ export class AdminusersComponent  implements OnInit {
 
   public cambiarImagentemp = false;
 
+  public emailVerified = this.usuarioService.usuarioActual.emailVerified;
+
   // public imagenTemp: any[] = [];
 
 
@@ -58,6 +60,7 @@ ngOnInit(): void {
     console.log("resp",resp);     
 
     this.usuarioService.usuarioActual = this.usuarioActual;
+    console.log("this.usuarioActual",this.usuarioActual.emailVerified);
   
   } )
 
@@ -177,6 +180,14 @@ campoNoValido(campo: string): boolean {
   } else {
     return false;
   }
+}
+
+
+emailVerifiedtrue() {
+  if (this.usuarioService.usuarioActual?.emailVerified === true) {
+    return true;
+  }
+  return false;
 }
 
 

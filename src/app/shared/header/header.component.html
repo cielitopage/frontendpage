@@ -26,7 +26,8 @@
         </div>
          <app-cartstatus ></app-cartstatus>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
        
-        <mat-icon  routerLink="/register" animation="true"  class="favorite">favorite</mat-icon>&nbsp;&nbsp;&nbsp;
+        <mat-icon  routerLink="/register" animation="true"  class="favorite" *ngIf="!getuser()"
+         >favorite</mat-icon>&nbsp;&nbsp;&nbsp;
         <mat-icon  routerLink="/admin"   class="admin"   animation="true"  *ngIf="admin()"  >admin_panel_settings</mat-icon>&nbsp;&nbsp;
         <div class="text-center wow fadeIn" *ngIf="getuser()">         
           <img  class="avatar wow fadeIn" data-wow-delay="1s"   [src]="img"  >

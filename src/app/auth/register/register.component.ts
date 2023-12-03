@@ -43,8 +43,7 @@ export class RegisterComponent implements OnInit {
    
       this.usuarioService.crearUsuario(this.registerForm.value).subscribe(
         {
-          next: (resp) => {
-          
+          next: (resp) => {          
             localStorage.setItem('token',resp.token!);
             Swal.fire(
               {
@@ -55,7 +54,7 @@ export class RegisterComponent implements OnInit {
                 confirmButtonColor: '#3085d6',  
                 allowOutsideClick: false,
                 allowEscapeKey: false })
-            this.router.navigateByUrl('/home');
+            this.router.navigateByUrl('/login');
        
           },
           error: (err) => {

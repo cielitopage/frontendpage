@@ -19,7 +19,7 @@ interface CanActivate {
 })
 
 
-export class authGuardAdmin implements CanActivate {
+export class authGuardEmailVerified implements CanActivate {
 
     constructor(
       private usuarioService: UsuarioService,
@@ -29,15 +29,17 @@ export class authGuardAdmin implements CanActivate {
   
     canActivate(): Observable<boolean> | Promise<boolean> | boolean {
   
-      const rol = this.usuarioService.usuarioActual.rol;
+      const emailverified = this.usuarioService.usuarioActual.emailVerified;
 
-      if (rol === 'SUPER_ADMIN_ROLE') {
+      console.log("emailverified",emailverified);
+
+      if (emailverified  === true) {
         return true;
       } else {
         Swal.fire({
                    icon: 'error',
                    title: 'Oops...',
-                    text: 'Debes iniciar sesión como administrador para acceder a esta página ',
+                    text: 'Debes verificar tu email para acceder a esta página ',
                     footer: '<a href="/login">Login</a>'
                         }
                     )

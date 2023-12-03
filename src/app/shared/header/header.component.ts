@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
 
   public img = '';
   public usuario = '';
+  public logeado = true;
 
 
 
@@ -67,9 +68,11 @@ export class HeaderComponent implements OnInit {
     this.img=  this.usuarioService.usuarioActual?.imagenUrl;
     this.usuario=  this.usuarioService.usuarioActual?.nombre;      
     const token = localStorage.getItem('token') || '';  
-    
-    if (token.length !== 0) {   
-          return true;    }
+  
+    if (token.length !== 0 && this.usuarioService.usuarioActual?.emailVerified === true) {
+      this.logeado = false;
+          return true; 
+           }
     return false
   }
 
@@ -80,6 +83,14 @@ export class HeaderComponent implements OnInit {
     }
     return false;
   }
+
+  emailVerified() {
+    if (this.usuarioService.usuarioActual?.emailVerified === true) {
+      return true;
+    }
+    return false;
+  }
+
   
 
 

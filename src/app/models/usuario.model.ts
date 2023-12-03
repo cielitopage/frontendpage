@@ -18,6 +18,7 @@ export class UsuarioModel {
         public estado? : boolean,       
         public google?: boolean,
         public uid?: string,
+        public emailVerified?: boolean,
        
         ) {      
      

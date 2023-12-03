@@ -20,13 +20,12 @@ export class ValidateComponent implements OnInit {
   ngOnInit(): void {
     const tokenf = this.activatedRoute.snapshot.paramMap.get('token');
     this.token = tokenf;
-
   }
 
 
 
   validaremail(token: string | null) {
-
+    console.log(token);
     return this.usuarioService.validaremail(token).subscribe(
       {
         next: (resp) => {

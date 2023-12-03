@@ -23,7 +23,7 @@ const baseUrl = environment.baseUrl;
 export class UsuarioService {
 
   public auth2: any;
-  public usuarioActual: UsuarioModel = new UsuarioModel('', '', '', '', '', '',false, false, '');
+  public usuarioActual: UsuarioModel = new UsuarioModel('', '', '', '', '', '',false, false, '',false);
 
 
   constructor(
@@ -119,7 +119,7 @@ export class UsuarioService {
           localStorage.setItem('token', resp.token)     
 
           if (rememberme) {
-            localStorage.setItem('email', resp.usuario.email);
+            localStorage.setItem('email', email);
           } else {
             localStorage.removeItem('email');
           }
@@ -138,8 +138,8 @@ export class UsuarioService {
       }
     }).pipe(
       map((resp: any) => {
-        const { nombre, email, rol, img = '', telefono, fechanac,estado, google, uid } = resp.usuario;
-        this.usuarioActual = new UsuarioModel(nombre, email, rol, img, telefono,fechanac, estado, google, uid);  
+        const { nombre, email, rol, img = '', telefono, fechanac,estado, google, uid,emailVerified } = resp.usuario;
+        this.usuarioActual = new UsuarioModel(nombre, email, rol, img, telefono,fechanac, estado, google, uid,emailVerified);  
         
         
         localStorage.setItem('token', resp.token);

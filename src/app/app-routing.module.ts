@@ -19,6 +19,7 @@ import { AdminusersComponent } from './dashboard/adminusers/adminusers.component
 import { PerfilusuarioComponent } from './dashboard/perfilusuario/perfilusuario.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { authGuardAdmin } from './guards/auth-admin.guard';
+import { authGuardEmailVerified } from './guards/auth-email-verified.guard';
 
 
 
