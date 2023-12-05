@@ -63,7 +63,7 @@ ngOnInit(): void {
     console.log("this.usuarioActual",this.usuarioActual.emailVerified);
   
   } )
-
+ 
  
 }
 

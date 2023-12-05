@@ -115,6 +115,14 @@ h6,
     top: -100px;
     transition: .5s;
 }
+.navbar.sticky-top1 {
+    top: -160px;
+    transition: .5s;
+  
+  
+   
+}
+
 
 .navbar .dropdown-toggle::after {
     border: none;

@@ -6,6 +6,7 @@ import { Observable, tap } from 'rxjs';
 import Swal from 'sweetalert2';
 import { UsuarioService } from '../services/usuario.service';
 import { environment } from 'src/environments/environment';
+import { UsuarioModel } from '../models/usuario.model';
 
 const baseUrl = environment.baseUrl;
 
@@ -38,16 +39,23 @@ export class authGuardAdmin implements CanActivate {
                    icon: 'error',
                    title: 'Oops...',
                     text: 'Debes iniciar sesión como administrador para acceder a esta página ',
-                    footer: '<a href="/login">Login</a>'
+                 
                         }
                     )
+                    .then((result) => {
+                      if (result.isConfirmed) {
+                        this.usuarioService.logout();
+                        localStorage.clear();
+                        this.router.navigateByUrl('/login');
+                      }
+                    }
+                    )
                     
-                  this.usuarioService.logout();
+                 
                 
-                  localStorage.clear();
                   
                   
-              this.router.navigateByUrl('/login');
+          
 
         return false;
       }

@@ -78,7 +78,9 @@ export class HeaderComponent implements OnInit {
 
 
   admin() {
-    if (this.usuarioService.usuarioActual?.rol === 'SUPER_ADMIN_ROLE') {
+    const token = localStorage.getItem('token') || ''; 
+    
+    if (token.length !== 0 &&this.usuarioService.usuarioActual?.rol === 'SUPER_ADMIN_ROLE') {
       return true;
     }
     return false;

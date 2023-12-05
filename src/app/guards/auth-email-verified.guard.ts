@@ -40,17 +40,19 @@ export class authGuardEmailVerified implements CanActivate {
                    icon: 'error',
                    title: 'Oops...',
                     text: 'Debes verificar tu email para acceder a esta página ',
-                    footer: '<a href="/login">Login</a>'
+                    
                         }
                     )
+                    .then((result) => {
+                      if (result.isConfirmed) {
+                        this.usuarioService.logout();
+                        localStorage.clear();
+                        this.router.navigateByUrl('/login');
+                      }
+                    }
+                    )
                     
-                  this.usuarioService.logout();
                 
-                  localStorage.clear();
-                  
-                  
-              this.router.navigateByUrl('/login');
-
         return false;
       }
 

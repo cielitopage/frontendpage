@@ -20,6 +20,8 @@ import { PerfilusuarioComponent } from './dashboard/perfilusuario/perfilusuario.
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { authGuardAdmin } from './guards/auth-admin.guard';
 import { authGuardEmailVerified } from './guards/auth-email-verified.guard';
+import { AdmincategoriasComponent } from './dashboard/admincategorias/admincategorias.component';
+import { AdminproductosComponent } from './dashboard/adminproductos/adminproductos.component';
 
 
 
@@ -30,10 +32,12 @@ const routes : Routes = [
   { path: 'about', component:AboutComponent, data: { title: 'About' }},
   { path: 'chicos', component:ChicosComponent, data: { title: 'Chicos' }},
   { path: 'chicas', component:ChicasComponent, data: { title: 'Chicas' }},
-  { path: 'bebes', component:BebesComponent, data: { title: 'Bebes' }},
-  { path: 'admin', component:AdminComponent,canActivate: [authGuard,authGuardAdmin ], data: { title: 'Admin' }},
+  { path: 'bebes', component:BebesComponent, data: { title: 'Bebes' }},//canActivate: [authGuard,authGuardAdmin ],
+  { path: 'admin', component:DashboardComponent, data: { title: 'Admin' }},
+  { path: 'admin-categorias', component:AdmincategoriasComponent, data: { title: 'Admin categorias' }},
+  { path: 'admin-productos', component:AdminproductosComponent, data: { title: 'Admin productos' }},
+  { path: 'perfil-usuario', component:PerfilusuarioComponent, data: { title: 'Perfil Usuario' }},
   { path: 'admin-user', component:AdminusersComponent,canActivate: [authGuard], data: { title: 'Actualizar Perfil Usuario' }},
-  { path: 'perfil-usuario', component:PerfilusuarioComponent,canActivate: [authGuard], data: { title: 'Perfil Usuario' }},
   { path: 'blog', component:BlogComponent, data: { title: 'Blog' }},
   { path: 'contact', component:ContactComponent, data: { title: 'Contact' }},
   { path: 'login', component:LoginComponent, data: { title: 'Login' }},

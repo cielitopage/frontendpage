@@ -1,0 +1,32 @@
+<div class="fondo-modal-imagen oculto animated fadeIn" [class.oculto]="modalImagenService._mostrarModal">
+
+    <div class="modal fade show" id="modalImagen" tabindex="-1" aria-labelledby="modalImagenLabel" aria-hidden="true"
+        style="display: block; padding-right: -17px; background-color: rgba(0,0,0,0.5);">
+
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                    <h3>seleecione imagen</h3>
+
+                    <img class="position-absolute rounded " [src]="this.usuarioActual.img" alt=""
+                        style="object-fit: cover;" *ngIf="this.usuarioActual.img">
+
+                    <img class="position-absolute   rounded" [src]="imagenTemp" alt="" style="object-fit: cover;"
+                        *ngIf="imagenTemp">
+
+                </div>
+                <div class="modal-footer">
+
+                    <input type="file" (change)="cambiarImagen($event)" id="file" name="file" accept="image/*">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        (click)="ocultarModal()">Close</button>
+
+                    <button type="submit" (click)="subirImagen()" [ngClass]="{'disabled': !imagenSubir}">
+                        subir
+
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>

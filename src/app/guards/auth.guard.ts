@@ -41,8 +41,14 @@ export class authGuard implements CanActivate {
                         footer: '<a href="/login">Login</a>'
                             }
                         )
-                        localStorage.clear(); 
-            this.router.navigateByUrl('/login');
+                        .then((result) => {
+                          if (result.isConfirmed) {
+                            this.usuarioService.logout();
+                            localStorage.clear();
+                            this.router.navigateByUrl('/login');
+                          }
+                        }
+                        )
           }
         }
         )

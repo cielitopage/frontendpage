@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { RegisterForm } from '../auth/interfaces/register-form-interfaces';
 
-import { Observable, catchError, map, of, tap } from 'rxjs';
+import { Observable, catchError, delay, map, of, tap } from 'rxjs';
 import { LoginForm } from '../auth/interfaces/login-form-interfaces';
 import { ResetForm } from '../auth/interfaces/reset-form-interfaces';
 import Swal from 'sweetalert2';
@@ -43,9 +43,7 @@ export class UsuarioService {
   }
 
 
-  getUsuarios() {
-    return this.http.get('https://reqres.in/api/users?page=2');
-  }
+ 
 
   getUsuarioById(id: string) {
     return this.http.get(`https://reqres.in/api/users/${id}`);
@@ -160,8 +158,7 @@ export class UsuarioService {
     }
   }
 
-  actualizarUsuario(usuario: { nombre: any, email: any, telefono: any, fechanac:any ,rol:any}) {
-   
+  actualizarUsuario(usuario: { nombre: any, email: any, telefono: any, fechanac:any ,rol:any}) {  
     
     return this.http.put(`${baseUrl}/usuarios/${this.uid}`, usuario, {
       headers: {
@@ -170,14 +167,77 @@ export class UsuarioService {
     });
   }
 
+  getUsuarios( desde: number = 0 ) {
+    return this.http.get(`${ baseUrl }/usuarios?desde=${ desde }`, {
+      headers: {
+        'x-token': this.token
+      }
+    } 
+    )
+    .pipe(
+      delay(1500),
+      map( resp => {
+        console.log("resp",resp);
+        let { total, usuarios } = resp as any;
+         usuarios = usuarios.map(
+          (user: any) => new UsuarioModel( user.nombre, user.email, user.rol, user.img, user.telefono,user.fechanac,user.estado, user.google, user.uid,user.emailVerified )
+        );
+        return {
+          total: total,
+          usuarios
+        };
+      }
+      )
+    );
+  }
+
+  
 
 
- 
+  actualizarRol( usuario: UsuarioModel ) { 
+    return this.http.put(`${ baseUrl }/usuarios/${ usuario.uid }`, usuario, {
+      headers: {
+        'x-token': localStorage.getItem('token') || ''
+      }          
+    } 
+    )
+    .pipe(
+      map( (resp: any) => {
+        const { nombre, email, uid, rol, img, google } = resp.usuario;
+        return new UsuarioModel( nombre, email, rol, img, '', '', false, google, uid,false );         
+      }
+      )
+    );
 
+}
 
+actualizarEstado( usuario: UsuarioModel ) { 
+  return this.http.put(`${ baseUrl }/usuarios/${ usuario.uid }`, usuario, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }          
+  } 
+  )
+  .pipe(
+    map( (resp: any) => {
+      const { nombre, email, uid, rol, img, google } = resp.usuario;
+      return new UsuarioModel( nombre, email, rol, img, '', '', false, google, uid,false );         
+    }
+    )
+  );
 
+}
 
+eliminarUsuario( id: string ) {
 
+  console.log("nh",id);
+  return this.http.delete(`${ baseUrl }/usuarios/${ id }`, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }          
+  } 
+  );
+}
 }
 
 

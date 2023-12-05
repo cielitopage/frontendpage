@@ -40,6 +40,8 @@ import { AdminproductosComponent } from './dashboard/adminproductos/adminproduct
 import { ResetpasswordComponent } from './pages/resetpassword/resetpassword.component';
 import { ResetpasswordconfirmComponent } from './pages/resetpasswordconfirm/resetpasswordconfirm.component';
 import { PerfilusuarioComponent } from './dashboard/perfilusuario/perfilusuario.component';
+import { HeaderadminComponent } from './shared/headeradmin/headeradmin.component';
+import { ModalImagenComponent } from './shared/modal-imagen/modal-imagen.component';
 
 
 
@@ -78,7 +80,9 @@ import { PerfilusuarioComponent } from './dashboard/perfilusuario/perfilusuario.
     AdminproductosComponent,
     ResetpasswordComponent,
     ResetpasswordconfirmComponent,
-    PerfilusuarioComponent,  
+    PerfilusuarioComponent,
+    HeaderadminComponent,
+    ModalImagenComponent,  
 
   ],
   imports: [
