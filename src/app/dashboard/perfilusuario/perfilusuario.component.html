@@ -2,7 +2,7 @@
 
 
    
-    <!-- 404 Start -->
+
     <div class="container-xxl py-5 " data-wow-delay="0.1s">
         <div class="container text-center">
            <app-headeradmin></app-headeradmin>
@@ -75,7 +75,9 @@
                                             <td>
                                                 <select   class="form-select form-select-sm" aria-label=".form-select-sm example"
                                                 (change)="cambiarEstado(usuario)" [(ngModel)]="usuario.estado"
-                                                 >                                               
+                                                 >   
+                                                 <option *ngIf="usuario.estado" value="true">Activo</option>
+                                                 <option *ngIf="!usuario.estado" value="false">Inactivo</option>                                           
                                                     <option value="true">Activo</option>
                                                     <option value="false">Inactivo</option>
                                                   </select>
@@ -102,7 +104,7 @@
             </div>
         </div>
     </div>
-    <!-- 404 End -->
+   
 
 
     

@@ -42,6 +42,7 @@ import { ResetpasswordconfirmComponent } from './pages/resetpasswordconfirm/rese
 import { PerfilusuarioComponent } from './dashboard/perfilusuario/perfilusuario.component';
 import { HeaderadminComponent } from './shared/headeradmin/headeradmin.component';
 import { ModalImagenComponent } from './shared/modal-imagen/modal-imagen.component';
+import { ProductonuevoComponent } from './dashboard/productonuevo/productonuevo.component';
 
 
 
@@ -82,7 +83,8 @@ import { ModalImagenComponent } from './shared/modal-imagen/modal-imagen.compone
     ResetpasswordconfirmComponent,
     PerfilusuarioComponent,
     HeaderadminComponent,
-    ModalImagenComponent,  
+    ModalImagenComponent,
+    ProductonuevoComponent,  
 
   ],
   imports: [

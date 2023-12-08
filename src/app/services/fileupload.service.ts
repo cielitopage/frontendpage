@@ -32,12 +32,40 @@ export class FileuploadService {
       if ( data ) {
         return data.nombreArchivo;
       }
-      console.log(data)
+    
       return false;    
     } catch (err) {
       console.log(err);     
     }
   }
+
+  async fileUploadImagen1(  archivo: File, tipo: 'productos'|'usuarios'|'categorias'|'articulos', id: string) {     
+
+    try {
+      const url = `${ base_url }/upload/imagen1/${ tipo }/${ id }`;
+      const formData = new FormData();
+      formData.append('imagen1', archivo);
+
+      const resp = await fetch( url, {
+        method: 'PUT',
+        headers: {
+          'x-token': localStorage.getItem('token') || ''
+        },
+        body: formData
+      });
+
+      const data = await resp.json();
+     
+      if ( data ) {
+        return data.nombreArchivo;
+      }
+     
+      return false;    
+    } catch (err) {
+      console.log(err);     
+    }
+  }
+
 
 
 }

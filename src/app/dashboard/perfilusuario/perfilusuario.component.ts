@@ -31,14 +31,20 @@ export class PerfilusuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsuarios();
+    
     this.modalImagenService.nuevaImagen
-      .subscribe(resp => {
-      
+      .subscribe(resp => {      
         this.usuarioActual.img = resp;
         this.getUsuarios();
       });
 
-    
+      this.usuarioService.validarToken().subscribe(resp => {
+      
+        this.usuarioService.usuarioActual = this.usuarioActual;
+        console.log("this.usuarioActual",this.usuarioActual.emailVerified);
+      
+      } )
+     
       
 
   }
@@ -94,7 +100,7 @@ export class PerfilusuarioComponent implements OnInit {
 
   cambiarDesde(valor: number) {
     const desde = this.desde + valor;
-    console.log(desde);
+ 
 
     if (desde >= this.totalUsuarios) {
       return;
@@ -111,7 +117,7 @@ export class PerfilusuarioComponent implements OnInit {
 
 
   buscar(termino: string) {
-    console.log(termino);
+    
     if (termino.length === 0) {
       return this.getUsuarios();
     }
@@ -122,7 +128,7 @@ export class PerfilusuarioComponent implements OnInit {
         this.usuarios = resp.usuarios;
         this.cargando = false;
         this.usuario = this.usuarioService.usuarioActual.nombre;
-        console.log(resp.usuarios);
+  
       }
       );
   }

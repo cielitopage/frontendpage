@@ -65,7 +65,7 @@ export class UsuarioService {
   }
 
   resetPassword(email: any) {
-    console.log("resetPassword", email);
+  
     return this.http.put(`${baseUrl}/resetpassword/reset`, email);
 
 
@@ -137,8 +137,7 @@ export class UsuarioService {
     }).pipe(
       map((resp: any) => {
         const { nombre, email, rol, img = '', telefono, fechanac,estado, google, uid,emailVerified } = resp.usuario;
-        this.usuarioActual = new UsuarioModel(nombre, email, rol, img, telefono,fechanac, estado, google, uid,emailVerified);  
-        
+        this.usuarioActual = new UsuarioModel(nombre, email, rol, img, telefono,fechanac, estado, google, uid,emailVerified);       
         
         localStorage.setItem('token', resp.token);
         return true;
@@ -177,7 +176,7 @@ export class UsuarioService {
     .pipe(
       delay(1500),
       map( resp => {
-        console.log("resp",resp);
+      
         let { total, usuarios } = resp as any;
          usuarios = usuarios.map(
           (user: any) => new UsuarioModel( user.nombre, user.email, user.rol, user.img, user.telefono,user.fechanac,user.estado, user.google, user.uid,user.emailVerified )
@@ -230,7 +229,6 @@ actualizarEstado( usuario: UsuarioModel ) {
 
 eliminarUsuario( id: string ) {
 
-  console.log("nh",id);
   return this.http.delete(`${ baseUrl }/usuarios/${ id }`, {
     headers: {
       'x-token': localStorage.getItem('token') || ''
@@ -238,6 +236,70 @@ eliminarUsuario( id: string ) {
   } 
   );
 }
+
+
+createTestimonial(mensaje: any) {
+  return this.http.post(`${ baseUrl }/testimonials`, {mensaje}, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }          
+  } 
+  );
+
 }
+
+getTestimonials() {
+  return this.http.get(`${ baseUrl }/testimonials`, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }          
+  } 
+  )
+  .pipe(
+    delay(1500),
+    map( resp => {
+    
+      let { total, testimonials } = resp as any;
+     
+      return {
+        total: total,
+        testimonials
+      };
+    }
+    )
+  );
+
+}
+
+
+actualizarTestimonial(mensaje: any,id:string) {
+ 
+  return this.http.put(`${ baseUrl }/testimonials/${ id }`, mensaje, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }          
+  } 
+  );
+
+}
+
+eliminarTestimonio( id: string ) {
+
+  return this.http.delete(`${ baseUrl }/testimonials/${ id }`, {
+    headers: {
+      'x-token': localStorage.getItem('token') || ''
+    }          
+  } 
+  );
+
+}
+
+
+
+
+
+}
+
+
 
 

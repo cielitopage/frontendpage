@@ -22,10 +22,17 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                         (click)="ocultarModal()">Close</button>
 
-                    <button type="submit" (click)="subirImagen()" [ngClass]="{'disabled': !imagenSubir}">
-                        subir
+                    <button type="submit" (click)="subirImagen()" [ngClass]="{'disabled': !imagenSubir}"
+                        class="btn btn-primary">
+                        subir imagen N°1
 
                     </button>
+
+                    <button type="submit" (click)="subirImagen1()" [ngClass]="{'disabled': !imagenSubir}"
+                    class="btn btn-primary">
+                    subir imagen N°2
+
+                </button>
                 </div>
             </div>
         </div>

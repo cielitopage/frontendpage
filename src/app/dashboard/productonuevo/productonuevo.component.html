@@ -1,0 +1,124 @@
+<div class="container-xxl py-5 " data-wow-delay="0.1s">
+    <div class="container text-center">
+        <app-headeradmin></app-headeradmin>
+        <div class="row ">
+            <div class="col-lg-6">
+                <img src="../../../assets/img/logocielito.png" alt="404" class="img-fluid mb-4 admini">
+                <h1 class="display-1">Administrar Productos</h1>
+                <h2 class="mb-2">Bienvenido {{usuario }}</h2>        
+              
+                <div class="card">
+                    <div class="card-body">
+                        <form class="form-horizontal form-material" id="loginform" autocomplete="off" [formGroup]="prodtcForm"
+                        (ngSubmit)="guardar()">              
+    
+                        <label class="box-title m-b-20">Ingrese nombre</label>
+                        <div class="form-group mb-2">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" placeholder="nombre" required autofocus
+                                    formControlName="nombre">
+                                <p class=" text-danger"
+                                    *ngIf="prodtcForm.controls['nombre'].invalid && prodtcForm.controls['nombre'].touched">
+                                    El nombre es obligatorio</p>
+                            </div>
+                        </div>
+    
+                        <label class="box-title m-b-20"> Ingrese precio</label>
+                        <div class="form-group mb-2">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="number" placeholder="precio" required autofocus
+                                    formControlName="precio">
+                                <p class=" text-danger"
+                                    *ngIf="prodtcForm.controls['precio'].invalid && prodtcForm.controls['precio'].touched">
+                                    El precio es obligatorio</p>
+                            </div>
+                        </div>
+
+                        <label class="box-title m-b-20"> Ingrese oferta ("no es obligaorio")</label>
+                        <div class="form-group mb-2">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="number" placeholder="oferta" required autofocus
+                                    formControlName="oferta">
+                              
+                            </div>
+                        </div>
+    
+                        <label class="box-title m-b-20">Ingrese descripcion </label>
+                        <div class="form-group mb-2">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" placeholder="descripcion" required autofocus
+                                    formControlName="descripcion">
+                                <p class=" text-danger"
+                                    *ngIf="prodtcForm.controls['descripcion'].invalid && prodtcForm.controls['descripcion'].touched">
+                                    La descripciones obligatorio</p>
+                            </div>
+                        </div> 
+    
+                        <label class="box-title m-b-20">Ingrese categoria</label>    
+                        <div class="form-group mb-2">
+                            <div class="col-xs-12">    
+                                <select class="form-control" required autofocus formControlName="categoria">
+                                    <option value="">Seleccione una categoria</option>
+                                    <option *ngFor="let item of categorias" [value]="item._id">{{item.nombre}}</option>
+                                </select>    
+                                <p class=" text-danger"
+                                    *ngIf="prodtcForm.controls['categoria'].invalid && prodtcForm.controls['categoria'].touched">
+                                    La categoria es obligatorio</p>
+                            </div>
+                        </div>
+
+                        <label class="box-title m-b-20"> Ingrese talla</label>
+                        <div class="form-group mb-2">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="number" placeholder="talla" required autofocus
+                                    formControlName="talla">
+
+                                <p class=" text-danger"
+                                    *ngIf="prodtcForm.controls['talla'].invalid && prodtcForm.controls['talla'].touched">
+                                    La talla es obligatorio</p>                         
+                            </div>
+                        </div>
+                       
+                        <label class="box-title m-b-20"> tags</label>
+                        <div class="form-group mb-2">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" placeholder="tags" required autofocus
+                                    formControlName="tags">
+                        
+                            </div>
+                        </div>
+    
+                        <div class="form-group text-center p-b-20">
+                            <div class="col-xs-12">
+                                <button
+                                class="btn btn-primary"
+                                    [disabled]="prodtcForm.invalid" [ngClass]="{'disabled': prodtcForm.invalid}"
+                                    [ngStyle]="{'cursor': prodtcForm.invalid ? 'not-allowed' : 'pointer'}" type="submit">
+                                    <i class="fa fa-save"> </i> Guardar</button>
+                            </div>
+
+                           
+                        </div>
+                    </form>
+                      
+                    </div>
+
+                </div>
+               
+
+            </div>
+
+            <div class="col-lg-6">
+                <img src="../../../assets/img/logocielito.png" alt="404" class="img-fluid mb-4 admini">
+                <h1 class="display-1">Administrar Productos</h1>
+                <h2 class="mb-2">Bienvenido {{usuario }}</h2>
+
+
+
+                
+
+            </div>
+
+        </div>
+    </div>
+</div>

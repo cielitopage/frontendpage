@@ -1,26 +1,110 @@
+<div class="container-xxl py-5 " data-wow-delay="0.1s">
+    <div class="container text-center">
+        <app-headeradmin></app-headeradmin>
+        <div class="row ">
+            <div class="col-lg-12">
+                <img src="../../../assets/img/logocielito.png" alt="404" class="img-fluid mb-4 admini">
+                <h1 class="display-1">Administrar Productos</h1>
+                <h2 class="mb-2">Bienvenido {{usuario }}</h2>
 
-
-   
-    <!-- 404 Start -->
-    <div class="container-xxl py-5 " data-wow-delay="0.1s">
-        <div class="container text-center">
-           <app-headeradmin></app-headeradmin>
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <img src="../../../assets/img/logocielito.png" alt="404" class="img-fluid mb-4 admini">
-                    <h1 class="display-1">Administrar productos</h1>
-                    <h2 class="mb-4">Bienvenido cate</h2>
-                  
-                    <p class="mb-4">
-                        Esta es la página de administración de productos, desde aquí podrá agregar, editar y eliminar productos.
-                    </p>
-                    <a class="btn btn-primary rounded-pill py-3 px-5" routerLink="/">Go Home</a>
+                <div class="card-body">
+                    <input type="text" class="form-control" placeholder="Buscar por su nombre" #txtBuscar
+                        (keyup.enter)=" buscarProducto(txtBuscar.value)" (keyup)=" buscarProducto(txtBuscar.value)" />
                 </div>
+                <h4 class="card-title text-left mb-4 text-primary  ">Productos({{totalRegistros}} )</h4>
+                <div class="card mb-4 ">
+                    <a class="btn btn-primary" [routerLink]="['/adminproductos/nuevo']">Nuevo Producto</a>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead 
+                                    class="table-dark "
+                                    style="background-color: #000000; color: #ffffff;
+                                    border-radius: 10px;"
+                                    fxLayout="row"
+                                    fxLayoutAlign="space-between center" >
+                                    <tr>
+                                        <th>imagen N°1</th>
+                                        <th>imagen N°2</th>
+                                        <th>Nombre</th>
+                                        <th>Estado</th>
+                                        <th>Precio</th>
+                                        <th>Oferta (%)</th>
+                                        <th>Categoria</th>
+                                        <th>Descripción</th>
+                                        <th>Tags</th>
+                                        <th>Talla</th>
+                                        <th>Link de pago</th>
+                                 
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody
+                                    style="background-color: #ffffff; color: #000000;
+                                    border-radius: 10px;"
+                                    fxLayout="row"
+                                    fxLayoutAlign="space-between center"
+                                    (scroll)="onScroll()" >
+
+                                    <tr *ngIf="cargando">
+                                        <td colspan="12" class="text-center">
+                                            <div class="spinner-border text-primary" style="width: 2rem; height: 2rem;"
+                                                role="status">
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                   
+                                    <tr *ngFor="let producto of productos">
+                                        <td>
+                                            <img src="{{producto.img}}" alt="" width="50px"
+                                                class="img-thumbnail rounded-circle" style="cursor: pointer;"
+                                                (click)="abrirModal(producto)">
+                                        </td>
+                                        <td>
+                                            <img src="{{producto.img1}}" alt="" width="50px"
+                                                class="img-thumbnail rounded-circle" style="cursor: pointer;"
+                                                (click)="abrirModalImagen1(producto)">
+                                        </td>
+                                        <td>{{producto.nombre}} </td>
+                                        <td>{{producto.estado}} </td>
+                                        <td>{{producto.precio}} </td>
+                                        <td>{{producto.oferta}} </td>
+                                        <td>{{producto.categoria?.nombre}} </td>
+                                        <td>{{producto.descripcion}} </td>
+                                        <td>{{producto.tags}} </td>
+                                        <td>{{producto.talla}} </td>
+                                        <td>
+                                            <input type="text" class="form-control" placeholder={{producto.linkdepago}}
+                                             #txtLink
+                                                (keyup.enter)="actualizarLink(txtLink.value, producto)"
+                                                (keyup)="actualizarLink(txtLink.value, producto)" />
+                                                <a  (click)="eliminarLink(producto)"><i class="fas fa-trash-alt cursor"></i> </a>
+                                        </td>
+                                      
+                                        <td>
+                                            <a [routerLink]="['/adminproductos/editar', producto._id]" ><i class="fas fa-edit cursor"></i></a> &nbsp;
+
+                                            <a  (click)="eliminarProducto(producto)"><i class="fas fa-trash-alt cursor"></i> </a>
+                                               
+                                        </td>
+                                    </tr>
+                              
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button class="btn btn-info btn-sm" (click)="cambiarDesde( - 5  )">Anterior</button> &nbsp;
+                            <button class="btn btn-info btn-sm" (click)="cambiarDesde( + 5  )">Siguiente</button>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>
-    <!-- 404 End -->
-
-
-
-    
+</div>

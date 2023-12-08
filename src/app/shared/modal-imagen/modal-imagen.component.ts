@@ -102,4 +102,27 @@ export class ModalImagenComponent implements OnInit {
 
       });
   }
+
+  subirImagen1() {
+    const id = this.modalImagenService.id;
+    const tipo = this.modalImagenService.tipo;
+
+    this.fileupladService.fileUploadImagen1(this.imagenSubir, tipo, id)
+      .then(img =>
+        setTimeout(() => {
+          this.modalImagenService.nuevaImagen.emit(img);
+          this.usuarioActual.img = img;
+          this.ocultarModal();
+          Swal.fire('Actualizado', 'Imagen actualizada correctamente', 'success');
+        }
+          , 1000)
+      )
+      .catch(err => {
+        console.log(err);
+
+      });
+  }
+
+
+
 }

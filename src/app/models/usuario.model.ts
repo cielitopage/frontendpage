@@ -19,6 +19,7 @@ export class UsuarioModel {
         public google?: boolean,
         public uid?: string,
         public emailVerified?: boolean,
+        public mensaje?: string,
        
         ) {      
      

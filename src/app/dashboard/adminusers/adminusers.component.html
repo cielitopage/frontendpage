@@ -1,40 +1,32 @@
-<!-- Contact Start -->
+
 <div class="container-xxl py-5">
     <div class="container">
 
 
         <div class="bg-light rounded">
-            <div class="row g-0" >
+            <div class="row g-0">
 
                 <div class="col-lg-6 wow fadeIn  align-items-center  " data-wow-delay="0.5s" style="min-height: 400px;">
-
                     <div class="position-relative avatar-perfil">
                         <img class="position-absolute w-100 h-100 rounded " [src]="this.usuarioActual.img" alt=""
                             style="object-fit: cover;">
                         <img class="position-absolute w-100 h-100 rounded" [src]="imagenTemp" alt=""
                             style="object-fit: cover;" *ngIf="imagenTemp">
                     </div>
-
                     <input type="file" (change)="cambiarImagen($event)" class=" btn btn-primary w-100" id="file"
                         name="file" accept="image/*" [disabled]="emailVerified == false">
 
                     <button class=" btn btn-primary w-100 " type="submit" [disabled]="!imagenSubir"
                         (click)="subirImagen()" [ngClass]="{'disabled': !imagenSubir}">
                         {{
-                            emailVerified == false ? 'Verifica tu email para completar tu perfil' : 'Completar Perfil'
-                            
-                          
-                          }}         
-              
+                        emailVerified == false ? 'Verifica tu email para completar tu perfil' : 'Completar Perfil'
+                        }}
                     </button>
                 </div>
-
-
 
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="h-100 d-flex flex-column justify-content-center p-5">
                         <p class="mb-4"><a> Completar tu perfil</a></p>
-
 
                         <form class="contact-form" id="contactForm" data-toggle="validator" (ngSubmit)="onSubmit()"
                             [formGroup]="registerForm " autocomplete="on">
@@ -55,7 +47,6 @@
                                         <label for="email">Email</label>
                                     </div>
                                 </div>
-
                                 <div class="col-sm-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control border-0" id="telefono"
@@ -66,25 +57,22 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-floating">
-
                                         <input type="date" class="form-control border-0" id="fechanac"
                                             formControlName="fechanac" placeholder="Fecha de nacimiento">
-                                        <label for="subject">Fecha de nacimiento</label>
-
-
-
+                                        <label for="subject">cumpleaños</label>
+                                        
                                     </div>
                                 </div>
 
                                 <div class="col-12">
-                                    <button [disabled]="emailVerified == false" class="btn btn-primary w-100 py-3" type="submit">                                      
-                                  
-                                      {{
-                                        emailVerified == false ? 'Verifica tu email para completar tu perfil' : 'Completar Perfil'
-                                      
-                                      }}         
-                          
-                                       </button>
+                                    <button [disabled]="emailVerified == false" class="btn btn-primary w-100 py-3"           
+                                        type="submit">
+
+                                        {{
+                                        emailVerified == false ? 'Verifica tu email para completar tu perfil' :  'Completar Perfil'
+                                        }}
+
+                                    </button>
                                 </div>
 
 
@@ -107,19 +95,50 @@
                                             <p class="text-danger" *ngIf="campoNoValido('fechanac') ">
                                                 La fecha de nacimiento es obligatoria
                                             </p>
-
-
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
 
-            </div>
+                <div class="col-lg-12 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="h-100 d-flex flex-column justify-content-center p-5">
+                        <p class="mb-4"><a> Dejanos tu opinion</a></p>
+
+                        <form class="contact-form" id="contactForm" data-toggle="validator" (ngSubmit)="onSubmitTestimonials()"
+                            [formGroup]="registerFormtestimonial" autocomplete="off">
+                            <div class="row g-3">
+
+                                <div class="col-sm-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control border-0" id="mensaje" formControlName="mensaje"
+                                            placeholder="deja tumensaje"></textarea>
+
+                                        <label for="name">Comentarios</label>
+                                    </div>
+                                </div>
+                            
+
+                                <div class="col-12">
+                                    <button [disabled]="emailVerified == false" class="btn btn-primary w-100 py-3"  type="submit">
+                                        {{
+                                        emailVerified == false ? 'Verifica tu email para comentar' :  'Dejanos un comentariio'
+                                        
+                                        }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <button [disabled]="emailVerified == false" class="btn btn-primary w-100 py-3"  type="submit" (click)="eliminarTestimonio()" >eliminar</button>
+                    </div>
+
+
+                </div>
+
+
+
         </div>
     </div>
 </div>
