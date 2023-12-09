@@ -45,6 +45,8 @@ import { ModalImagenComponent } from './shared/modal-imagen/modal-imagen.compone
 import { ProductonuevoComponent } from './dashboard/productonuevo/productonuevo.component';
 import { ProductoeditarComponent } from './dashboard/productoeditar/productoeditar.component';
 import { EstadoPipePipe } from './estado-pipe.pipe';
+import { BusquedasComponent } from './shared/busquedas/busquedas.component';
+import { BusquedasresultComponent } from './pages/busquedasresult/busquedasresult.component';
 
 
 
@@ -88,7 +90,9 @@ import { EstadoPipePipe } from './estado-pipe.pipe';
     ModalImagenComponent,
     ProductonuevoComponent,
     ProductoeditarComponent,
-    EstadoPipePipe,  
+    EstadoPipePipe,
+    BusquedasComponent,
+    BusquedasresultComponent,  
 
   ],
   imports: [

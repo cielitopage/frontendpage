@@ -5,8 +5,7 @@
          <img src="../../../assets/img/logocielito.png" alt="Logo" class="logo-dark"  /> 
       <!--  <h1 class="m-0 text-secondary">Cielito Azul</h1>   <i class="fa fa-cloud text-info me-2"> </i> -->
     </a>
- 
-    <app-cartstatus class="navbar-toggler "></app-cartstatus> 
+
    
     <button type="button" class="navbar-toggler " data-bs-toggle="collapse" data-bs-target="#navbarCollapse" [ngClass]="{'collapsed': isMenuCollapsed}" (click)="isMenuCollapsed = !isMenuCollapsed">
         <span class="navbar-toggler-icon"></span>
@@ -19,14 +18,12 @@
             <a routerLink="/chicas"  routerLinkActive="activo"  class="nav-item nav-link">Chicas</a>   
             <a routerLink="/bebes"   routerLinkActive="activo"  class="nav-item nav-link">Bebes</a>             
             <a routerLink="/blog"    routerLinkActive="activo"  class="nav-item nav-link">Blog</a>            
-            <a routerLink="/contact" routerLinkActive="activo"  class="nav-item nav-link">Contact Us</a>
-          
-            
-            
+            <a routerLink="/contact" routerLinkActive="activo"  class="nav-item nav-link">Contact Us</a>         
+                        
         </div>
-         <app-cartstatus ></app-cartstatus>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-       
-        <mat-icon  routerLink="/register" animation="true"  class="favorite" *ngIf="!getuser()" >favorite</mat-icon>&nbsp;&nbsp;&nbsp;
+      
+         <app-cartstatus ></app-cartstatus>       
+        <mat-icon  routerLink="/register" animation="true"  class="favorite" *ngIf="!getuser()" >favorite</mat-icon>
         <mat-icon  routerLink="/admin"   class="admin"   animation="true"  *ngIf="admin()"  >admin_panel_settings</mat-icon>&nbsp;&nbsp;
         <div class="text-center wow fadeIn" *ngIf="getuser()">         
           <img  class="avatar wow fadeIn" data-wow-delay="1s"   [src]="img"  >

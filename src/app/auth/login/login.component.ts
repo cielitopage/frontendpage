@@ -33,14 +33,16 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
 
 
-  ngAfterViewInit(): void {
-    this.googleInit();
-  }
-
+ 
 
   ngOnInit(): void {
 
   }
+
+  ngAfterViewInit(): void {
+    this.googleInit();
+  }
+
 
   googleInit() {
     google.accounts.id.initialize({

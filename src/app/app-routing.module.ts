@@ -24,6 +24,7 @@ import { AdmincategoriasComponent } from './dashboard/admincategorias/admincateg
 import { AdminproductosComponent } from './dashboard/adminproductos/adminproductos.component';
 import { ProductonuevoComponent } from './dashboard/productonuevo/productonuevo.component';
 import { ProductoeditarComponent } from './dashboard/productoeditar/productoeditar.component';
+import { BusquedasresultComponent } from './pages/busquedasresult/busquedasresult.component';
 
 
 
@@ -32,6 +33,7 @@ const routes : Routes = [
   { path: '', component: HomeComponent , data: { title: 'Home' }}, 
   { path: 'home', component: HomeComponent , data: { title: 'Home' }},
   { path: 'about', component:AboutComponent, data: { title: 'About' }},
+  { path: 'buscar/:termino', component:BusquedasresultComponent, data: { title: 'Busqueda' }},
   { path: 'chicos', component:ChicosComponent, data: { title: 'Chicos' }},
   { path: 'chicas', component:ChicasComponent, data: { title: 'Chicas' }},
   { path: 'bebes', component:BebesComponent, data: { title: 'Bebes' }},
