@@ -26,8 +26,8 @@
                                     <tr>
                                         <th>imagen</th>
                                         <th>Nombre</th>
-                                        <th>Estado</th>
-                                        <th>Acciones</th>
+                                        <!-- <th>Estado</th> -->
+                                        <!-- <th>Acciones</th> -->
                                     </tr>
                                 </thead>
 
@@ -48,19 +48,19 @@
                                             <img src="{{categoria.img}}" alt="" width="50px" class="img-thumbnail rounded-circle" style="cursor: pointer;"   (click)="abrirModal(categoria)" >
                                         </td>
                                         <td>{{categoria.nombre}}</td>
-                                        <td>
+                                        <!-- <td>
                                             <select class="form-control" [(ngModel)]="categoria.estado"
                                                 (change)="cambiarEstado(categoria)">
 
                                                 <option value="true">Activo</option>
                                                 <option value="false">Inactivo</option>
                                             </select>
-                                      
-                                        <td>
+                                        </td> -->
+                                        <!-- <td>
                                             <a (click)="editarCategoria(categoria)"><i class="fas fa-edit cursor"></i> </a> &nbsp;
                                            
                                             <a (click)="eliminarCategoria(categoria)"><i class="fas fa-trash-alt cursor"></i> </a>
-                                        </td>
+                                        </td> -->
                                     </tr>
                                 </tbody>
                             </table>

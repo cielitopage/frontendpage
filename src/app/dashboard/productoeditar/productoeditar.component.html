@@ -1,7 +1,7 @@
 <div class="container-xxl py-5 " data-wow-delay="0.1s">
     <div class="container text-center">
         <app-headeradmin></app-headeradmin>
-        <div class="row ">
+        <div class="row py-1">
             <div class="col-lg-2">
                 <img src="../../../assets/img/logocielito.png" alt="404" class="img-fluid mb-4 admini">    
 
@@ -30,7 +30,7 @@
                         <div class="form-group mb-2">
                             <div class="col-xs-12">
                                 <input class="form-control" type="number" placeholder="precio" required autofocus
-                                    formControlName="precio">
+                                    formControlName="precio" onkeyup="/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':this.value=''" >
                                 <p class=" text-danger"
                                     *ngIf="prodtcForm.controls['precio'].invalid && prodtcForm.controls['precio'].touched">
                                     El precio es obligatorio</p>

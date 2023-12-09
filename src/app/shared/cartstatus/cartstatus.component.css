@@ -27,5 +27,11 @@
   --mat-badge-text-color: white
 }
 
+.cartstatus .span {
+  font-size: 0.6em;
+  color: #444366;
+  cursor: pointer;
+}
+
 
 

@@ -3,6 +3,9 @@
     margin-top: -200px;
  
 }
+.cursor{
+    cursor: pointer;
+}
 
 @media (max-width: 768px) {
     .admini{

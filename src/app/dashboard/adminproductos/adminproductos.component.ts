@@ -42,12 +42,10 @@ export class AdminproductosComponent  implements OnInit {
     private productoService: ProductoService,
     private usuarioService: UsuarioService,
     private modalImagenService: ModalImagenService,
-    private categoriasService: CategoriasService,
-  
-    private fb : FormBuilder,
-    
-  
-  ) { }
+    private categoriasService: CategoriasService,  
+    private fb : FormBuilder
+     ) 
+     { }
   ngOnInit(): void {
 
     this.prodtcForm = this.fb.group({
@@ -75,6 +73,8 @@ export class AdminproductosComponent  implements OnInit {
     this.modalImagenService.nuevaImagen.subscribe(img1 => this.cargarProductos());
    
   }
+
+
 
   cargarCategorias() {  
     this.categoriasService.cargarCaregorias()
@@ -120,10 +120,6 @@ export class AdminproductosComponent  implements OnInit {
   }
   this.desde += valor;
   this.cargarProductos();
-
-
-
-
   }
 
   eliminarProducto(producto: Producto) {
@@ -154,6 +150,8 @@ export class AdminproductosComponent  implements OnInit {
   });
   }
 
+
+
   abrirModal(producto: Producto) {
     if (producto.usuario?._id !== this.usuarioService.usuarioActual.uid) {
       Swal.fire('Error', 'No puede editar esta categoria,solo su categria es editable', 'error');
@@ -173,6 +171,8 @@ export class AdminproductosComponent  implements OnInit {
     this.hasta += 10;
     this.cargarProductos();
   }
+
+
 
   actualizarLink(linkdepago:string,producto: Producto) {
     if (producto.usuario?._id !== this.usuarioService.usuarioActual.uid) {
@@ -202,6 +202,8 @@ export class AdminproductosComponent  implements OnInit {
     });
   }
 
+
+
   eliminarLink(producto: Producto) {
     if (producto.usuario?._id !== this.usuarioService.usuarioActual.uid) {
       Swal.fire('Error', 'No puede editar esta categoria,solo su categria es editable', 'error');
@@ -229,6 +231,34 @@ export class AdminproductosComponent  implements OnInit {
       }
     });
   } 
+
+  cambiarEstado(producto: Producto) {
+    if (producto.usuario?._id !== this.usuarioService.usuarioActual.uid) {
+      Swal.fire('Error', 'No puede editar esta categoria,solo su categria es editable', 'error');
+      return;
+    }
+    Swal.fire({
+      title: '¿Cambiar estado?',
+      text: `Esta a punto de cambiar el estado de ${producto.nombre}`,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Si, cambiar',
+      cancelButtonText: 'No, cancelar',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        this.productoService.cambiarEstado(producto.estado, producto)
+          .subscribe(resp => {
+            this.cargarProductos();
+            Swal.fire(
+              'Cambiado!',
+              `El estado de ${producto.nombre} ha sido cambiado`,
+              'success'
+            );
+          })
+      }
+    });
+  }
 
 
 

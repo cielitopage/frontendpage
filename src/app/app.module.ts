@@ -43,6 +43,8 @@ import { PerfilusuarioComponent } from './dashboard/perfilusuario/perfilusuario.
 import { HeaderadminComponent } from './shared/headeradmin/headeradmin.component';
 import { ModalImagenComponent } from './shared/modal-imagen/modal-imagen.component';
 import { ProductonuevoComponent } from './dashboard/productonuevo/productonuevo.component';
+import { ProductoeditarComponent } from './dashboard/productoeditar/productoeditar.component';
+import { EstadoPipePipe } from './estado-pipe.pipe';
 
 
 
@@ -84,7 +86,9 @@ import { ProductonuevoComponent } from './dashboard/productonuevo/productonuevo.
     PerfilusuarioComponent,
     HeaderadminComponent,
     ModalImagenComponent,
-    ProductonuevoComponent,  
+    ProductonuevoComponent,
+    ProductoeditarComponent,
+    EstadoPipePipe,  
 
   ],
   imports: [
