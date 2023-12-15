@@ -72,3 +72,14 @@ body {
         margin-bottom: -1rem;
         text-transform: uppercase;
     }
+
+    @media screen and (max-width: 768px) {
+        .slider {
+            width: 100%;
+        }
+        .slider .slide-track {
+            width: calc(250px * 7);
+        }
+      
+    }
+
