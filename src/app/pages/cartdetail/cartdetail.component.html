@@ -88,7 +88,7 @@
                                     </tr>
 
                                     <tr>
-                                        <td colspan="6" class="text-right">
+                                        <td colspan="6" class="text-right" *ngIf="cartItems.length > 0">
                                             <a class="btn text-primary" (click)="vaciarCarrito()">Vaciar Carrito</a>
                                             <a class="btn text-primary" (click)="realizarPedido()">Realizar Pedido</a>
                                         </td>
