@@ -402,13 +402,12 @@ h6,
 
 /*** Classes ***/
 .classes-item-detail {
-    width: 130% !important;
-    transition: .5s;
+    width: 160%;  
+    margin-left: -30%;
+  
 }
 
-.classes-item-detail:hover {
-    margin-top: -10px;
-}
+
 
 @media screen and (max-width: 768px) {
     .classes-item-detail {

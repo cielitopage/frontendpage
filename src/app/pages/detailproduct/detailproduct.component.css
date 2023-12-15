@@ -6,13 +6,17 @@
     order: 1;
   }
   
+  
   .slider ul {
     display: flex;
     padding: 0;
     width: 400%;
     height: 500px;
-    animation: slider 20s infinite;
+    animation: slider 10s infinite;
+
   }
+
+  
   
   .slider ul li img {
     width: 100%;

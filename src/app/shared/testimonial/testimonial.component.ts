@@ -30,20 +30,21 @@ export class TestimonialComponent implements  OnInit {
   ngOnInit() {
     customInitFunction();
     this.getTestimonial();
-
-    
-
-
-
   }
+
+  
 
   getTestimonial() {
     this.usuarioService.getTestimonials()
       .subscribe((testimonial) => {
 
+        console.log("testimonial",testimonial.testimonials);
+
+
+
         console.log("leo",testimonial.testimonials.map((resp: any) => resp.mensaje  ));
 
-         this.testimonial = testimonial.testimonials.map((resp: any) => resp);
+         this.testimonial = testimonial.testimonials;
 
         console.log("this.testimonial",this.testimonial);
 

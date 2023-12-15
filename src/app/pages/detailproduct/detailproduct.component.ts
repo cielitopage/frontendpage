@@ -40,6 +40,7 @@ export class DetailproductComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private location: Location
+    
   ) { }
 
   ngOnInit(): void {
@@ -80,7 +81,7 @@ export class DetailproductComponent implements OnInit {
            }
       )}
 
-
+    
       volver(){
         this.location.back();
       }

@@ -1,6 +1,56 @@
+<!-- Testimonial Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3">Nuestros Clientes Opinan</h1>
+            <p>Nos gusta saber que piensan nuestros clientes</p>
+        </div>
+
+
+            <div class="" >
+               
+                <!-- <div class="testimonial-item bg-light rounded p-5">
+
+                  
+                    <p class="fs-5">{{testimonio.mensaje}}</p>
+                    <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
+                        <img class="img-fluid flex-shrink-0 rounded-circle" src="{{testimonio.usuario.img}}"
+                            style="width: 90px; height: 90px;">
+                        <div class="ps-3">
+                            <h3 class="mb-1">{{testimonio.usuario.nombre}}</h3>
+                            <span>{{testimonio.usuario.email}}</span>
+                        </div>
+                        <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
+                    </div>
+
+
+                </div> -->
+
+                <div class="slider" >
+                    <div class="slide-track"  >
+
+                        <div class="slide" *ngFor="let testimonio of testimonial">
+                            <img src="{{testimonio.usuario.img}}" style="width: 20px; height: 20px; border-radius: 50%;"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <h5 >{{testimonio.usuario.nombre}} </h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           
+                            <p class="">{{testimonio.mensaje}}</p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           
+                           <p class="">{{testimonio.usuario.email}}</p>
+                            
+                      
+                        </div>
+                     
+                    
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
 
 
 
 
-<!-- testimonials.component.ts -->
+    </div>
 
+<!-- Testimonial End -->

@@ -89,7 +89,7 @@ export class CartserviceService {
 
 
   logCartData(totalPriceValue: number, totalQuantityValue: number, oferta: number, descuento: number) {
-    console.log('Contenido del carrito');
+  
     for (let tempCartItem of this.cartItems) {
       const subTotalPrice = tempCartItem.cantidad * tempCartItem.precio;
       console.log(`nombre: ${tempCartItem.nombre}, cantidad: ${tempCartItem.cantidad}, precio: ${tempCartItem.precio}, subtotal: ${subTotalPrice}`);
@@ -142,11 +142,9 @@ export class CartserviceService {
   }
 
   createOrderDetail(cliente: any, shippingAddress: any, billingAddress: any, order: any,orderItems: any) {
+
     const url = `${base_url}/carrito`;
-
     return this.http.post(url, { cliente, shippingAddress, billingAddress, order,orderItems}, this.headers);
-
-
   }
 
 

@@ -4,6 +4,8 @@ import { Cartitems } from 'src/app/models/cartitems';
 import { CartserviceService } from 'src/app/services/cartservice.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
+import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-cartdetail',
   templateUrl: './cartdetail.component.html',
@@ -26,6 +28,7 @@ export class CartdetailComponent implements   OnInit {
     private usuarioService: UsuarioService, 
     private cartService: CartserviceService ,
     private router: Router,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
@@ -65,6 +68,9 @@ export class CartdetailComponent implements   OnInit {
     this.router.navigate(['/checkout']);
   }
 
-
+  volver(){
+    this.location.back();
+  }
+  
 
 }
