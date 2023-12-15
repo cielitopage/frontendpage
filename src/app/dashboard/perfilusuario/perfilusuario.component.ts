@@ -38,13 +38,11 @@ export class PerfilusuarioComponent implements OnInit {
         this.getUsuarios();
       });
 
-      this.usuarioService.validarToken().subscribe(resp => {
-      
+      this.usuarioService.validarToken().subscribe(resp => {      
         this.usuarioService.usuarioActual = this.usuarioActual;
         console.log("this.usuarioActual",this.usuarioActual.emailVerified);
       
-      } )
-     
+      } )    
       
 
   }

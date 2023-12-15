@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
+import { Location } from '@angular/common';
 
 declare const google: any;
 
@@ -28,7 +29,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private location: Location
   ) { }
 
 
@@ -69,6 +71,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this.usuarioService.loginGoogle(response.credential, this.loginForm.get('rememberme')?.value)
       .subscribe(resp => {      
         Swal.fire('Bienvenido', resp.name, 'success');
+        this.volver();
         this.router.navigateByUrl('/admin-user');
       }
       );
@@ -87,6 +90,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
         next: (resp) => {       
          
           Swal.fire('Bienvenido', resp.usuario.nombre, 'success');
+          this.volver();
           this.router.navigateByUrl('/admin-user');
         },
         error: (err) => {
@@ -104,7 +108,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
     }
   }
 
-
+  volver(){
+    this.location.back();
+  }
 
 
 }

@@ -15,6 +15,7 @@ export class FooterComponent  implements OnInit {
 
   public year: number = new Date().getFullYear();
   public productos: any[] = [];
+  public cargando: boolean = true;
   @ViewChild('googleButton') googleButton!: ElementRef;
 
   constructor(
@@ -68,7 +69,8 @@ export class FooterComponent  implements OnInit {
     this.productoService.cargarPrductos( 0 )
       .subscribe( ({ productos }) => {    
    
-        this.productos = productos.productos;      
+        this.productos = productos.productos;  
+        this.cargando = false;    
             
       });
   }

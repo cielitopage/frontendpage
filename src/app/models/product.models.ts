@@ -10,20 +10,22 @@ interface _ProductoUsuario {
 
 export class Producto {
     constructor(
+        public  _id: string,
         public   nombre: string,
-        public   descripcion?: string,
-        public   img?: string,
-        public   img1?: string,
-        public  _id?: string,
+        public   img: string,
+        public   precio: number,
+        public   cantidad:  number,
+        public   oferta:  number,
+        public   descripcion?: string,      
+        public   img1?: string,     
         public   usuario?: _ProductoUsuario,
-        public   categoria?: Categoria,
-        public   precio?: number,
+        public   categoria?: Categoria,      
         public   disponible?: boolean,
         public   linkdepago?: string,
-        public   estado?: boolean,
-        public   oferta?:  number,
+        public   estado?: boolean,     
         public   tags?: string[],
         public   talla?:  number,
+     
 
     ) { }
 

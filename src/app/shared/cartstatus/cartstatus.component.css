@@ -1,3 +1,12 @@
+
+.cartstatus-area {
+  background-color: #f2f2f3;   
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  transition: all 0.5s ease-in-out ;
+
+}
 .cartstatus {
   color: #6a679e;
   cursor: pointer;
@@ -32,6 +41,28 @@
   color: #444366;
   cursor: pointer;
 }
+
+.price {
+  font-size: 0.6em;
+  color: #444366;
+  cursor: pointer;
+}
+
+
+
+
+.price:hover {
+  color: #ff0000;
+  text-shadow: 0px 0px 10px #f2f2f3;
+  text-emphasis-color: #f2f2f3;
+  font-size: 0.7em;
+  transition: all 0.5s ease-in-out ;
+  
+}
+
+
+
+
 
 
 

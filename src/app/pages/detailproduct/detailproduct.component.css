@@ -1,0 +1,201 @@
+.slider {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    order: 1;
+  }
+  
+  .slider ul {
+    display: flex;
+    padding: 0;
+    width: 400%;
+    height: 500px;
+    animation: slider 20s infinite;
+  }
+  
+  .slider ul li img {
+    width: 100%;
+    height: 500px;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  input[type="radio"]+label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 4px;
+    transition: .3s;
+    border-radius: 50%;
+    margin-left: 2px;  
+  }
+  
+  input[type="radio"]+label:hover {
+    transition: .3s;
+    opacity: .7;
+  }
+  
+  #sbutton1+label {
+    background-color: #b11515;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-left: 10px;
+
+  }
+  
+  #sbutton2+label {
+    background-color: #b11515;
+    width: 12px;
+     height: 12px;
+     border-radius: 50%;
+
+
+
+  }
+  
+  #sbutton3+label {
+    background: url(http://www.worldatlas.com/r/w728-h425-c728x425/upload/d9/63/b0/most-populous-cities-in-oceania.jpg);
+    background-size: 100% 100%;
+  }
+  
+  #sbutton4+label {
+    background: url(http://media.cntraveler.com/photos/57adedf97516fb180520de91/16:9/w_1024,c_limit/friendliest-burlington-GettyImages-157614212.jpg);
+    background-size: 100% 100%;
+  }
+  
+  #sbutton1:checked~ul {
+    margin-left: 0;
+    animation: none;
+  }
+  
+  #sbutton2:checked~ul {
+    margin-left: -100%;
+    animation: none;
+  }
+  
+  #sbutton3:checked~ul {
+    margin-left: -200%;
+    animation: none;
+  }
+  
+  #sbutton4:checked~ul {
+    margin-left: -300%;
+    animation: none;
+  }
+  
+  @keyframes slider {
+    0%,
+    20% {
+      margin-left: 0;
+    }
+    25%,
+    40% {
+      margin-left: -100%;
+    }
+    45%,
+    70% {
+      margin-left: -200%;
+    }
+    72%,
+    100% {
+      margin-left: -300%;
+    }
+
+    
+  }
+
+
+  
+
+  @media screen and (max-width: 768px) {
+    .slider {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+      order: 1;
+    }
+    
+    .slider ul {
+      display: flex;
+      padding: 0;
+      width: 400%;
+      height: 300px;
+      animation: slider 20s infinite;
+    }
+    
+    .slider ul li img {
+      width: 100%;
+      height: 300px;
+    }
+    
+    input[type="radio"] {
+      display: none;
+    }
+    
+    input[type="radio"]+label {
+      display: inline-block;
+      cursor: pointer;
+      padding: 4px;
+      transition: .3s;
+      border-radius: 50%;
+      margin-left: 2px;  
+    }
+    
+    input[type="radio"]+label:hover {
+      transition: .3s;
+      opacity: .7;
+    }
+    
+    #sbutton1+label {
+      background-color: #b11515;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-left: 10px;
+  
+    }
+    
+    #sbutton2+label {
+      background-color: #b11515;
+      width: 12px;
+       height: 12px;
+       border-radius: 50%;
+  
+  
+  
+    }
+    
+    #sbutton3+label {
+      background: url(http://www.worldatlas.com/r/w728-h425-c728x425/upload/d9/63/b0/most-populous-cities-in-oceania.jpg);
+      background-size: 100% 100%;
+    }
+    
+    #sbutton4+label {
+      background: url(http://media.cntraveler.com/photos/57adedf97516fb180520de91/16:9/w_1024,c_limit/friendliest-burlington-GettyImages-157614212.jpg);
+      background-size: 100% 100%;
+    }
+    
+    #sbutton1:checked~ul {
+      margin-left: 0;
+      animation: none;
+    }
+    
+    #sbutton2:checked~ul {
+      margin-left: -100%;
+      animation: none;
+    }
+    
+    #sbutton3:checked~ul {
+      margin-left: -200%;
+      animation: none;
+    }
+    
+    #sbutton4:checked~ul {
+      margin-left: -300%;
+      animation: none;
+    }
+  }

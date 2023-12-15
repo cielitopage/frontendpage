@@ -2,7 +2,7 @@
 .image_with_badge_container img+span.badge {
     position: relative;
     top: 12px;
-    left: -15px;
+    left: -10px;
     background-color: #ff0000;
     color: white;
     border-radius: 50%;

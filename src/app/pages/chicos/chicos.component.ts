@@ -4,6 +4,7 @@ import { ProductoService } from 'src/app/services/producto.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { map } from 'rxjs';
 import { CategoriasService } from 'src/app/services/categorias.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -32,7 +33,8 @@ export class ChicosComponent implements OnInit {
   constructor(
     private productoService: ProductoService,
     private usuarioService: UsuarioService, 
-    private categoriasService:CategoriasService
+    private categoriasService:CategoriasService,
+    private router: Router,
 
      ) { }
 
@@ -43,6 +45,11 @@ export class ChicosComponent implements OnInit {
       this.usuarioService.usuarioActual = this.usuarioActual;
     })
   }
+
+  agregarAlCarrito(producto: Producto) {
+    console.log(producto);
+    }
+  
 
   
   cargarCategorias() {

@@ -290,6 +290,10 @@ h6,
     }
 }
 
+.cursor{
+    cursor: pointer !important;
+}
+
 
 /*** Facility ***/
 .facility-item .facility-icon {
@@ -395,6 +399,24 @@ h6,
 .classes-item:hover {
     margin-top: -10px;
 }
+
+/*** Classes ***/
+.classes-item-detail {
+    width: 130% !important;
+    transition: .5s;
+}
+
+.classes-item-detail:hover {
+    margin-top: -10px;
+}
+
+@media screen and (max-width: 768px) {
+    .classes-item-detail {
+        width: 100% !important;
+    }
+    
+}
+
 
 
 /*** Team ***/

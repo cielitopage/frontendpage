@@ -149,10 +149,13 @@ export class UsuarioService {
 
   logout() {
     localStorage.removeItem('token');  
+    sessionStorage.removeItem('cartItems');
+ 
 
     if (this.auth2) {
       this.auth2.signOut().then(() => {
         console.log("User signed out.");
+        sessionStorage.removeItem('cartItems');
       });
     }
   }

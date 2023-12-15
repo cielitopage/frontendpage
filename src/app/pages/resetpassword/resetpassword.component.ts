@@ -49,7 +49,7 @@ export class ResetpasswordComponent  implements OnInit {
             icon: 'success',
             confirmButtonText: 'Ok'
           });
-          this.router.navigateByUrl('/login');
+          this.router.navigateByUrl('/home');
         },
         error: (err) => {
           Swal.fire({

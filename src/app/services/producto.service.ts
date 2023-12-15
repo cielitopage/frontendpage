@@ -48,7 +48,7 @@ export class ProductoService {
       );
   }
 
-  cargarPrductosPorId(id: string) {
+  cargarProductosPorId(id: string) {
     const url = `${base_url}/productos/${id}`;
 
     return this.http.get(url, this.headers)

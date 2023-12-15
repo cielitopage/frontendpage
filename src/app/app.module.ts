@@ -47,6 +47,12 @@ import { ProductoeditarComponent } from './dashboard/productoeditar/productoedit
 import { EstadoPipePipe } from './estado-pipe.pipe';
 import { BusquedasComponent } from './shared/busquedas/busquedas.component';
 import { BusquedasresultComponent } from './pages/busquedasresult/busquedasresult.component';
+import { DetailproductComponent } from './pages/detailproduct/detailproduct.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { CartdetailComponent } from './pages/cartdetail/cartdetail.component';
+import { ChekoutComponent } from './pages/chekout/chekout.component';
+
 
 
 
@@ -92,7 +98,11 @@ import { BusquedasresultComponent } from './pages/busquedasresult/busquedasresul
     ProductoeditarComponent,
     EstadoPipePipe,
     BusquedasComponent,
-    BusquedasresultComponent,  
+    BusquedasresultComponent,
+    DetailproductComponent,
+    CartComponent,
+    CartdetailComponent,
+    ChekoutComponent,  
 
   ],
   imports: [
@@ -104,7 +114,8 @@ import { BusquedasresultComponent } from './pages/busquedasresult/busquedasresul
     MatBadgeModule,
     MatButtonModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatMenuModule,
   ],
   providers: [
    

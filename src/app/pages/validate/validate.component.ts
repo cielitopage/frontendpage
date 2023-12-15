@@ -29,7 +29,7 @@ export class ValidateComponent implements OnInit {
     return this.usuarioService.validaremail(token).subscribe(
       {
         next: (resp) => {
-          this.router.navigateByUrl('/login');
+          this.router.navigateByUrl('/home');
         },
         error: (err) => {
           console.warn(err.error.msg);

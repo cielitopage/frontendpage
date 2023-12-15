@@ -1,19 +1,16 @@
+<div class="cartstatus-area"  routerLink="/carrito">
 <div  class="cartstatus">
     
         <mat-icon matBadge="{{totalQuantity}}" 
-        routerLink="/cart"  class="cartstatus"
+         class="cartstatus"
         matBadgeColor="warn"
         matBadgeSize="small"
         matBadgePosition="after"
         animation="true"
         >shopping_cart</mat-icon>
-        <span class="span" >My carrito </span>
-
-
-   
-       
+        <span class="span" >{{totalPrice | currency:'ARS ':true:'1.2-2'}} </span>      
 
      
  
-
+</div>
 </div>

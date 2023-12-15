@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
 import { GlobalService } from 'src/app/global.service';
+import { CartserviceService } from 'src/app/services/cartservice.service';
 
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -28,9 +29,9 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute,
     private usuarioService: UsuarioService,
-    private globalService: GlobalService
+    private cartService: CartserviceService,
+  
   ) {      
   }
 
@@ -59,6 +60,8 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.usuarioService.logout();
+    this.cartService.removeAll();
+    localStorage.removeItem('cartItems');
     this.router.navigateByUrl('/login');
   }
 

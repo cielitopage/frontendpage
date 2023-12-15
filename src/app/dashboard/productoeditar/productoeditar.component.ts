@@ -60,7 +60,7 @@ export class ProductoeditarComponent implements OnInit {
 
 
   cargarProducto(id: string) {   
-    this.productoService.cargarPrductosPorId(id)
+    this.productoService.cargarProductosPorId(id)
       .subscribe(producto => {      
 
         this.prodtcForm.setValue({

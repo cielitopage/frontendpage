@@ -79,7 +79,7 @@ public token: string | null = '';
             icon: 'success',
             confirmButtonText: 'Ok'
           });
-          this.router.navigateByUrl('/login');
+          this.router.navigateByUrl('/home');
         },
         error: (err) => {
           Swal.fire({

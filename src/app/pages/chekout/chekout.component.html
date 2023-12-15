@@ -1,0 +1,387 @@
+<div class="container-xxl py-5" data-wow-delay="0.1s">
+    <div class="container" style="position: relative; top: -50px;">
+        <div class="row g-4 mb-5 " style="background-color: #ffffff; color: #000000; border-radius: 10px;">
+
+
+            <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()" class="contact-form">
+
+                <!-- customer form group -->
+                <div formGroupName="cliente" class="form-area">
+                    <h3>Cliente</h3>
+
+                    <div class="col-sm-12">
+                        <label>Nombre</label>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <input class="form-control" formControlName="nombre" type="text" readonly="true">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <label>telefono</label>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <input class="form-control" formControlName="tel" type="text" readonly="true">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <label>Email</label>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <input class="form-control" formControlName="email" type="text" readonly="true">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- shipping Address -->
+                <div formGroupName="shippingAddress" class="form-area">
+                    <h3>Dirección de envío</h3>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-2"> <label>Pais</label></div>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <select class="form-control" formControlName="country">
+                                    <option class="form-control" value="Argentina" selected="selected" #country>
+                                        Argentina</option>
+                                </select>
+                                <div   *ngIf="checkoutFormGroup.get('shippingAddress.country')?.touched && checkoutFormGroup.get('shippingAddress.country')?.invalid">
+                                    <div *ngIf="checkoutFormGroup.get('shippingAddress.country')?.errors?.['required']"
+                                        class="text-danger">
+                                        Pais es requerido.
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-2"> <label>Calle y N°</label></div>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <input class="form-control" formControlName="street" type="text" #street>
+                                <div
+                                    *ngIf="checkoutFormGroup.get('shippingAddress.street')?.touched && checkoutFormGroup.get('shippingAddress.street')?.invalid">
+                                    <div *ngIf="checkoutFormGroup.get('shippingAddress.street')?.errors?.['required']"
+                                        class="text-danger">
+                                        Calle y N° es requerido.
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-2"> <label>Ciudad</label></div>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <input class="form-control" formControlName="city" type="text">
+
+                                <div
+                                    *ngIf="checkoutFormGroup.get('shippingAddress.city')?.touched && checkoutFormGroup.get('shippingAddress.city')?.invalid">
+                                    <div *ngIf="checkoutFormGroup.get('shippingAddress.city')?.errors?.['required']"
+                                        class="text-danger">
+                                        Ciudad es requerido.
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-2"> <label>Provincia</label></div>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <select class="form-control" formControlName="state" #state>
+                                    <option>Ciudad Autónoma de Buenos Aires</option>
+                                    <option>Buenos Aires</option>
+                                    <option>Catamarca</option>
+                                    <option>Chaco</option>
+                                    <option>Chubut</option>
+                                    <option>Córdoba</option>
+                                    <option>Corrientes</option>
+                                    <option>Entre Ríos</option>
+                                    <option>Formosa</option>
+                                    <option>Jujuy</option>
+                                    <option>La Pampa</option>
+                                    <option>La Rioja</option>
+                                    <option>Mendoza</option>
+                                    <option>Misiones</option>
+                                    <option>Neuquén</option>
+                                    <option>Río Negro</option>
+                                    <option>Salta</option>
+                                    <option>San Juan</option>
+                                    <option>San Luis</option>
+                                    <option>Santa Cruz</option>
+                                    <option>Santa Fe</option>
+                                    <option>Santiago del Estero</option>
+                                    <option>Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
+                                    <option>Tucumán</option>
+                                </select>
+
+                                <div
+                                    *ngIf="checkoutFormGroup.get('shippingAddress.state')?.touched && checkoutFormGroup.get('shippingAddress.state')?.invalid">
+                                    <div *ngIf="checkoutFormGroup.get('shippingAddress.state')?.errors?.['required']"
+                                        class="text-danger">
+                                        La Provincia es requerida
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-2"> <label>Código Postal</label></div>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <input class="form-control" formControlName="zipCode" type="text" #zipCode pattern="[0-9]*" inputmode="numeric">
+
+                                <div
+                                    *ngIf="checkoutFormGroup.get('shippingAddress.zipCode')?.touched && checkoutFormGroup.get('shippingAddress.zipCode')?.invalid">
+                                    <div *ngIf="checkoutFormGroup.get('shippingAddress.zipCode')?.errors?.['required']"
+                                        class="text-danger">
+                                        Código Postal es requerido.
+                                    </div>
+                                    <div *ngIf="checkoutFormGroup.get('shippingAddress.zipCode')?.errors?.['pattern']"
+                                        class="text-danger">
+                                        Código Postal debe ser un número.
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <br />
+                <!-- Add check box to copy shipping to billing -->
+                <div class="form-area">
+                    <h3>Copiar la dirección de envío a la dirección de facturación</h3>
+                    <input type="checkbox" (change)="copyShippingAddressToBillingAddress($event)">&nbsp;
+                    <span class="au-checkmark">Dirección de facturación Igual que la dirección de envío</span>
+                </div>
+
+
+                <!-- Billing Address -->
+                <div formGroupName="billingAddress" class="form-area" id="billingAddress" #billingAddress>
+                    <h3>Dirección de facturación</h3>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-2"> <label>Pais</label></div>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <select class="form-control" formControlName="country">
+                                    <option class="form-control" value="Argentina" selected="selected" #country> Argentina</option>                          
+                                </select>
+
+                                <div
+                                    *ngIf="checkoutFormGroup.get('billingAddress.country')?.touched && checkoutFormGroup.get('billingAddress.country')?.invalid">
+                                    <div *ngIf="checkoutFormGroup.get('billingAddress.country')?.errors?.['required']"
+                                        class="text-danger">
+                                        Pais es requerido.
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-2"> <label>Calle y N°</label></div>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <input class="form-control" formControlName="street" type="text">
+
+                                <div
+                                    *ngIf="checkoutFormGroup.get('billingAddress.street')?.touched && checkoutFormGroup.get('billingAddress.street')?.invalid">
+                                    <div *ngIf="checkoutFormGroup.get('billingAddress.street')?.errors?.['required']"
+                                        class="text-danger">
+                                        Calle y N° es requerido.
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-2"> <label>Ciudad</label></div>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <input class="form-control" formControlName="city" type="text">
+                                <div
+                                    *ngIf="checkoutFormGroup.get('billingAddress.city')?.touched && checkoutFormGroup.get('billingAddress.city')?.invalid">
+                                    <div *ngIf="checkoutFormGroup.get('billingAddress.city')?.errors?.['required']"
+                                        class="text-danger">
+                                        Ciudad es requerido.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-2"> <label>Provincia</label></div>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <select class="form-control" formControlName="state">
+                                    <option>Ciudad Autónoma de Buenos Aires</option>
+                                    <option>Buenos Aires</option>
+                                    <option>Catamarca</option>
+                                    <option>Chaco</option>
+                                    <option>Chubut</option>
+                                    <option>Córdoba</option>
+                                    <option>Corrientes</option>
+                                    <option>Entre Ríos</option>
+                                    <option>Formosa</option>
+                                    <option>Jujuy</option>
+                                    <option>La Pampa</option>
+                                    <option>La Rioja</option>
+                                    <option>Mendoza</option>
+                                    <option>Misiones</option>
+                                    <option>Neuquén</option>
+                                    <option>Río Negro</option>
+                                    <option>Salta</option>
+                                    <option>San Juan</option>
+                                    <option>San Luis</option>
+                                    <option>Santa Cruz</option>
+                                    <option>Santa Fe</option>
+                                    <option>Santiago del Estero</option>
+                                    <option>Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
+                                    <option>Tucumán</option>
+                                </select>
+
+
+                                <div
+                                *ngIf="checkoutFormGroup.get('billingAddress.state')?.touched && checkoutFormGroup.get('billingAddress.state')?.invalid">
+                                <div *ngIf="checkoutFormGroup.get('billingAddress.state')?.errors?.['required']"
+                                    class="text-danger">
+                                La Provincia es requerida
+                                </div>
+                            </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-2"> <label>Código Postal</label></div>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <input class="form-control" formControlName="zipCode" type="text" #zipCode pattern="[0-9]*" inputmode="numeric">
+
+                                <div
+                                    *ngIf="checkoutFormGroup.get('billingAddress.zipCode')?.touched && checkoutFormGroup.get('billingAddress.zipCode')?.invalid">
+                                    <div *ngIf="checkoutFormGroup.get('billingAddress.zipCode')?.errors?.['required']"
+                                        class="text-danger">
+                                        Código Postal es requerido.
+                                    </div>
+                                    <div *ngIf="checkoutFormGroup.get('billingAddress.zipCode')?.errors?.['pattern']"
+                                        class="text-danger">
+                                        Código Postal debe ser un número.
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Credit Card -->
+                <!-- <div formGroupName="creditCard" class="form-area">
+                    <h3>Credit Card</h3>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-2"> <label>Card Type</label></div>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <select class="form-control" formControlName="cardType">
+                                    <option>Visa</option>
+                                    <option>Mastercard</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-2"> <label>Name on Card</label></div>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <input class="form-control" formControlName="nameOnCard" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-2"> <label>Card Number</label></div>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <input class="form-control" formControlName="cardNumber" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-2"> <label>Security Code</label></div>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <input class="form-control" formControlName="securityCode" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-2"> <label>Expiration Month</label></div>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <select class="form-control" formControlName="expirationMonth">
+                                    <option>TO DO</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-2"> <label>Expiration Year</label></div>
+                        <div class="form-floating">
+                            <div class="input-space">
+                                <select class="form-control" formControlName="expirationYear">
+                                    <option>TO DO</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> -->
+
+                <!-- Order details -->
+                <div class="form-area">
+                    <h3>Revisión del pedido</h3>
+
+                    <p>Total Cantidad: {{ cantidad }}</p>
+                    <p>Descuento: {{ descuento | currency:'ARS ':true:'1.2-2' }}</p>
+                    <p>Total A Pagar: {{ totalPagar | currency:'ARS ':true:'1.2-2' }}</p>
+                </div>
+
+                <!-- submit button-->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-info">Purchase</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

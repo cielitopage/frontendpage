@@ -1,0 +1,16 @@
+.form-area {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 40px 60px;
+  margin: 0 auto;
+  margin-top: 4px;
+  margin-bottom: 50px;
+  max-width: 800px;
+  position: relative;
+}
+.form-check-label {
+  margin-left: 0;
+}
+.au-checkmark {
+  margin-left: 0;
+}

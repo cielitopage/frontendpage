@@ -31,9 +31,7 @@
                             <div class="col-xs-12">
                                 <input class="form-control" type="number" placeholder="precio" required autofocus
                                     formControlName="precio" onkeyup="/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':this.value=''" >
-                                <p class=" text-danger"
-                                    *ngIf="prodtcForm.controls['precio'].invalid && prodtcForm.controls['precio'].touched">
-                                    El precio es obligatorio</p>
+                                    <p class=" text-danger" *ngIf="prodtcForm.controls['precio'].invalid && prodtcForm.controls['precio'].touched"> El precio es obligatorio</p>
                             </div>
                         </div>
 

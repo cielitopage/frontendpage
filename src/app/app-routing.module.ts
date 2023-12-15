@@ -25,6 +25,10 @@ import { AdminproductosComponent } from './dashboard/adminproductos/adminproduct
 import { ProductonuevoComponent } from './dashboard/productonuevo/productonuevo.component';
 import { ProductoeditarComponent } from './dashboard/productoeditar/productoeditar.component';
 import { BusquedasresultComponent } from './pages/busquedasresult/busquedasresult.component';
+import { DetailproductComponent } from './pages/detailproduct/detailproduct.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { CartdetailComponent } from './pages/cartdetail/cartdetail.component';
+import { ChekoutComponent } from './pages/chekout/chekout.component';
 
 
 
@@ -37,12 +41,15 @@ const routes : Routes = [
   { path: 'chicos', component:ChicosComponent, data: { title: 'Chicos' }},
   { path: 'chicas', component:ChicasComponent, data: { title: 'Chicas' }},
   { path: 'bebes', component:BebesComponent, data: { title: 'Bebes' }},
-  { path: 'admin', component:DashboardComponent, data: { title: 'Admin' }},//canActivate: [authGuard,authGuardAdmin ],
-  { path: 'admin-categorias', component:AdmincategoriasComponent, data: { title: 'Admin categorias' }},//canActivate: [authGuard,authGuardAdmin ],
-  { path: 'admin-productos', component:AdminproductosComponent, data: { title: 'Admin productos' }},//canActivate: [authGuard,authGuardAdmin ],
-  { path: 'adminproductos/nuevo', component:ProductonuevoComponent, data: { title: 'Crear productos' }},//canActivate: [authGuard,authGuardAdmin ],
-  { path: 'adminproductos/editar/:id', component:ProductoeditarComponent, data: { title: 'Crear productos' }},//canActivate: [authGuard,authGuardAdmin ],
-  { path: 'perfil-usuario', component:PerfilusuarioComponent, data: { title: 'Perfil Usuario' }},//canActivate: [authGuard,authGuardAdmin ],
+  { path: 'producto/:id', component:DetailproductComponent, data: { title: 'Productos' }},
+  { path: 'carrito', component:CartdetailComponent, data: { title: 'Carrito' }},
+  { path: 'checkout', component:ChekoutComponent,canActivate: [authGuard], data: { title: 'checkout' }},//canActivate: [authGuard],
+  { path: 'admin', component:DashboardComponent,canActivate: [authGuard,authGuardAdmin ], data: { title: 'Admin' }},//canActivate: [authGuard,authGuardAdmin ],
+  { path: 'admin-categorias', component:AdmincategoriasComponent,canActivate: [authGuard,authGuardAdmin ], data: { title: 'Admin categorias' }},//canActivate: [authGuard,authGuardAdmin ],
+  { path: 'admin-productos', component:AdminproductosComponent,canActivate: [authGuard,authGuardAdmin ], data: { title: 'Admin productos' }},//canActivate: [authGuard,authGuardAdmin ],
+  { path: 'adminproductos/nuevo', component:ProductonuevoComponent,canActivate: [authGuard,authGuardAdmin ], data: { title: 'Crear productos' }},//canActivate: [authGuard,authGuardAdmin ],
+  { path: 'adminproductos/editar/:id', component:ProductoeditarComponent,canActivate: [authGuard,authGuardAdmin ], data: { title: 'Crear productos' }},//canActivate: [authGuard,authGuardAdmin ],
+  { path: 'perfil-usuario', component:PerfilusuarioComponent,canActivate: [authGuard,authGuardAdmin ], data: { title: 'Perfil Usuario' }},//canActivate: [authGuard,authGuardAdmin ],
   { path: 'admin-user', component:AdminusersComponent,canActivate: [authGuard], data: { title: 'Actualizar Perfil Usuario' }},
   { path: 'blog', component:BlogComponent, data: { title: 'Blog' }},
   { path: 'contact', component:ContactComponent, data: { title: 'Contact' }},

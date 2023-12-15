@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Producto } from 'src/app/models/product.models';
 import { CategoriasService } from 'src/app/services/categorias.service';
 import { ProductoService } from 'src/app/services/producto.service';
@@ -30,7 +31,8 @@ export class BebesComponent  implements OnInit {
   constructor(
     private productoService: ProductoService,
     private usuarioService: UsuarioService, 
-    private categoriasService:CategoriasService
+    private categoriasService:CategoriasService,
+    private router: Router,
 
      ) { }
 
@@ -40,6 +42,10 @@ export class BebesComponent  implements OnInit {
       this.usuarioService.validarToken().subscribe(resp => {     
       this.usuarioService.usuarioActual = this.usuarioActual;
     })
+  }
+
+  agregarAlCarrito(producto: Producto) {
+  console.log(producto);
   }
 
   
@@ -52,9 +58,7 @@ export class BebesComponent  implements OnInit {
         this.categoria =this.categorias.map((categoria: { _id: any; }) => categoria._id);
         this.cargarProductosPorCategoria(this.categoria);
        
-      }
-      )
-      }
+      })}
   
 
 
