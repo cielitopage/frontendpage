@@ -25,6 +25,8 @@ export class AdminusersComponent implements OnInit {
   public cambiarImagentemp = false;
   public dia = 1;
   public emailVerified = this.usuarioService.usuarioActual.emailVerified;
+  public contenido: string = '';
+  public limiteCaracteres: number = 200;
 
   // public imagenTemp: any[] = [];
 
@@ -372,6 +374,13 @@ export class AdminusersComponent implements OnInit {
 
   volver(){
     this.location.back();
+  }
+
+
+ 
+
+  get caracteresRestantes(): number {
+    return this.limiteCaracteres - this.contenido.length;
   }
   
 

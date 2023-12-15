@@ -116,10 +116,17 @@
 
                                 <div class="col-sm-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control border-0" id="mensaje" formControlName="mensaje"
-                                            placeholder="deja tumensaje"></textarea>
+                                        
+                                        <textarea class="form-control border-0" id="mensaje" formControlName="mensaje" rows="4" cols="50" [(ngModel)]="contenido"
+                                            placeholder="deja tumensaje"
+                                            maxlength="200"
+                                            ></textarea>                                         
+                                          
 
-                                        <label for="name">Comentarios</label>
+                                          
+
+
+                                        <label for="name">Comentarios | caracteres restantes {{ caracteresRestantes }}</label>
                                     </div>
                                 </div>
                             
