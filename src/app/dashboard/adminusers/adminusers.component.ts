@@ -5,7 +5,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
 import * as moment from 'moment';
 import { FileuploadService } from 'src/app/services/fileupload.service';
-import { map } from 'rxjs';
+import { Location } from '@angular/common';
 
 moment.locale('es');
 
@@ -22,10 +22,8 @@ export class AdminusersComponent implements OnInit {
   public fechanacimiento = moment(this.usuarioActual.fechanac).format('YYYY-MM-DD');
   public imagenSubir!: File;
   public imagenTemp: string | ArrayBuffer | null = null;
-
   public cambiarImagentemp = false;
   public dia = 1;
-
   public emailVerified = this.usuarioService.usuarioActual.emailVerified;
 
   // public imagenTemp: any[] = [];
@@ -40,13 +38,9 @@ export class AdminusersComponent implements OnInit {
     telefono: [this.usuarioActual.telefono, [Validators.required, Validators.pattern('[0-9]{10}')]],
     fechanac: [this.usuarioActual.fechanac, [Validators.required, this.dateValidator]],
     rol: [this.usuarioService.usuarioActual.rol, [Validators.required, Validators.minLength(6)]],
-
-
-  }
-  );
+  } );
 
   public registerFormtestimonial = this.fb.group({
-
     mensaje: ['', Validators.required],
     uid: [this.usuarioService.usuarioActual.uid],
 
@@ -59,11 +53,10 @@ export class AdminusersComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private usuarioService: UsuarioService,
-    private uploadService: FileuploadService
+    private uploadService: FileuploadService,
+    private location: Location
 
-  ) {
-
-  }
+  ) { }
 
   ngOnInit(): void {
 
@@ -377,6 +370,9 @@ export class AdminusersComponent implements OnInit {
 
 
 
-
+  volver(){
+    this.location.back();
+  }
+  
 
 }

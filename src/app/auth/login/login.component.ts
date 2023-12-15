@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     private fb: FormBuilder,
     private usuarioService: UsuarioService,
     private location: Location
+    
   ) { }
 
 
