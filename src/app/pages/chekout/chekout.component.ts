@@ -36,6 +36,11 @@ export class ChekoutComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.usuarioService.validarToken().subscribe(resp => {
+      console.log("resp",resp); 
+      
+    } )
+
     this.listCartDetail();
 
     this.usuarioService.validarToken().subscribe(resp => {

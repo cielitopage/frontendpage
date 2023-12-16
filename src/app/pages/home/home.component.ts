@@ -17,10 +17,10 @@ export class HomeComponent implements OnInit{
 
  
     this.usuarioService.validarToken().subscribe(resp => {
-      console.log("resp",resp);     
- 
+      console.log("resp",resp); 
       
     } )
+    
   }
 
 
