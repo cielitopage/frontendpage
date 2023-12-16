@@ -38,14 +38,14 @@ export class ChicasComponent implements OnInit {
 
   ngOnInit(): void {    
 
+    this.usuarioService.validarToken().subscribe(resp => {     
+      this.usuarioService.usuarioActual = this.usuarioActual;
+    })
     
 
     this.cargarCategorias();
 
-      this.usuarioService.validarToken().subscribe(resp => {     
-      this.usuarioService.usuarioActual = this.usuarioActual;
-    })
-    
+   
   }
 
   agregarAlCarrito(producto: Producto) {
