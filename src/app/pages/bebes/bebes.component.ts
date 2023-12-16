@@ -38,12 +38,10 @@ export class BebesComponent  implements OnInit {
 
   ngOnInit(): void {    
 
-    this.usuarioService.validarToken().subscribe(resp => {
-      console.log("resp",resp); 
-      
-    } )
+ 
 
     this.cargarCategorias();
+
       this.usuarioService.validarToken().subscribe(resp => {     
       this.usuarioService.usuarioActual = this.usuarioActual;
     })

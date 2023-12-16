@@ -36,16 +36,13 @@ export class ChekoutComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.usuarioService.validarToken().subscribe(resp => {
-      console.log("resp",resp); 
-      
-    } )
+  
 
     this.listCartDetail();
 
     this.usuarioService.validarToken().subscribe(resp => {
       this.usuarioService.usuarioActual = this.usuarioActual;
-      console.log("this.usuarioActual", this.usuarioActual);
+    
     })
 
     this.checkoutFormGroup = this.formBuilder.group({

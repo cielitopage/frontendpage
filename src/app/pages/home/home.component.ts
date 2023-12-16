@@ -16,11 +16,10 @@ export class HomeComponent implements OnInit{
   ngOnInit(): void {
 
  
-    this.usuarioService.validarToken().subscribe(resp => {
-      console.log("resp",resp); 
+    this.usuarioService.validarToken().subscribe(resp => {    
       
     } )
-    
+
   }
 
 
