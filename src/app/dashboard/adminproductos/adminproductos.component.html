@@ -36,7 +36,7 @@
                                         <th>Descripción</th>
                                         <th>Tags</th>
                                         <th>Talla</th>
-                                        <th>Link de pago</th>                                 
+                                        <!-- <th>Link de pago</th>  -->
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -81,11 +81,10 @@
                                         <td>{{producto.descripcion}} </td>
                                         <td>{{producto.tags}} </td>
                                         <td>{{producto.talla}} </td>
-                                        <td 
+                                        <!-- <td 
                                             [ngClass]="{'text-danger': producto.linkdepago == ''}"
                                             [title]="producto.linkdepago == '' ? 'No tiene link de pago' : 'Click para editar el link de pago' "
-                                            style="cursor: pointer;"
-                                        >
+                                            style="cursor: pointer;" >
                                             <input type="text" class="form-control" placeholder={{producto.linkdepago}}
                                              #txtLink
                                                 (keyup.enter)="actualizarLink(txtLink.value, producto)"
@@ -93,7 +92,7 @@
                                                 <a (click)="actualizarLink(txtLink.value, producto)"><i class="fas fa-save cursor"></i> </a>&nbsp;
                                                 <a  (click)="eliminarLink(producto)"><i class="fas fa-trash-alt cursor"></i> </a>
 
-                                        </td>
+                                        </td> -->
                                       
                                         <td>
                                             <a [routerLink]="['/adminproductos/editar', producto._id]" ><i class="fas fa-edit cursor"></i></a> &nbsp;

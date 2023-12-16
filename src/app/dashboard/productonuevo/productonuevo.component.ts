@@ -79,11 +79,17 @@ export class ProductonuevoComponent implements OnInit {
   guardar(){  
     const {nombre,precio,descripcion,categoria} = this.prodtcForm.value;
     this.productoService.crearProducto(this.prodtcForm.value)
-    .subscribe( (resp:any) => {     
-      Swal.fire('Guardado', 'Producto guardado correctamente', 'success');
-      this.router.navigateByUrl('/admin-productos');     
-    } )
-  }
+    .subscribe( {
+      next: () => {
+        Swal.fire('Guardado', 'Producto creado correctamente', 'success');
+        this.router.navigateByUrl('/admin-productos');
+      },
+      error: (err) => {
+        Swal.fire('Error', err.error.msg, 'error');
+      }
+    });
+    }
+  
 
 
   camposNoValidos(campo: string): boolean {

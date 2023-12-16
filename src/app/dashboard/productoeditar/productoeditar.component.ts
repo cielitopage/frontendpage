@@ -82,10 +82,15 @@ export class ProductoeditarComponent implements OnInit {
 
   guardar(){      
     this.productoService.editarProducto( this.id,this.prodtcForm.value)
-    .subscribe( (resp:any) => {     
-      Swal.fire('Guardado', 'Producto guardado correctamente', 'success');
-      this.router.navigateByUrl('/admin-productos');     
-    } )
+    .subscribe( {
+      next: () => {
+        Swal.fire('Guardado', 'Producto actualizado', 'success');
+        this.router.navigateByUrl('/admin-productos');
+      },
+      error: (err) => {
+        Swal.fire('Error', err.error.msg, 'error');
+      }
+    });
   }
 
 
