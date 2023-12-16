@@ -8,7 +8,9 @@
 
    
     <button type="button" class="navbar-toggler " data-bs-toggle="collapse" data-bs-target="#navbarCollapse" [ngClass]="{'collapsed': isMenuCollapsed}" (click)="isMenuCollapsed = !isMenuCollapsed">
-        <span class="navbar-toggler-icon"></span>
+      <app-cartstatus ></app-cartstatus>       
+      <span class="navbar-toggler-icon"></span>
+
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse" [ngClass]="{'show': !isMenuCollapsed}" (click)="isMenuCollapsed = true">
         <div class="navbar-nav mx-auto " id="menu-button" >
@@ -17,7 +19,7 @@
             <a routerLink="/chicos"  routerLinkActive="activo"  class="nav-item nav-link">Chicos</a> 
             <a routerLink="/chicas"  routerLinkActive="activo"  class="nav-item nav-link">Chicas</a>   
             <a routerLink="/bebes"   routerLinkActive="activo"  class="nav-item nav-link">Bebes</a>             
-            <a routerLink="/blog"    routerLinkActive="activo"  class="nav-item nav-link">Blog</a>            
+            <!-- <a routerLink="/blog"    routerLinkActive="activo"  class="nav-item nav-link">Blog</a>             -->
             <a routerLink="/contact" routerLinkActive="activo"  class="nav-item nav-link">Contact Us</a>         
                         
         </div>

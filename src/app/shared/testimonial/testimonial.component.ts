@@ -10,7 +10,7 @@ declare function customInitFunction(): any;
   templateUrl: './testimonial.component.html',
   styleUrls: ['./testimonial.component.css']
 })
-export class TestimonialComponent implements  OnInit {
+export class TestimonialComponent implements OnInit {
 
   public testimonial: any = [];
   public cargando = false;
@@ -20,7 +20,7 @@ export class TestimonialComponent implements  OnInit {
   public nombre: string = '';
   public img = '';
 
- 
+
 
   constructor(
     private router: Router,
@@ -32,31 +32,15 @@ export class TestimonialComponent implements  OnInit {
     this.getTestimonial();
   }
 
-  
+
 
   getTestimonial() {
     this.usuarioService.getTestimonials()
       .subscribe((testimonial) => {
-
-        console.log("testimonial",testimonial.testimonials);
-
-
-
-        console.log("leo",testimonial.testimonials.map((resp: any) => resp.mensaje  ));
-
-         this.testimonial = testimonial.testimonials;
-
-        console.log("this.testimonial",this.testimonial);
-
-     
-
-
-   
-
-    
-
-     
       
+        this.testimonial = testimonial.testimonials;
+        console.log("this.testimonial", this.testimonial);
+
       });
   }
 

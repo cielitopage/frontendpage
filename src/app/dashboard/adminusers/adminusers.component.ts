@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import * as moment from 'moment';
 import { FileuploadService } from 'src/app/services/fileupload.service';
 import { Location } from '@angular/common';
+import { map } from 'rxjs';
 
 moment.locale('es');
 
@@ -19,6 +20,7 @@ moment.locale('es');
 export class AdminusersComponent implements OnInit {
 
   public usuarioActual = this.usuarioService.usuarioActual;
+  public uid = this.usuarioActual.uid;
   public fechanacimiento = moment(this.usuarioActual.fechanac).format('YYYY-MM-DD');
   public imagenSubir!: File;
   public imagenTemp: string | ArrayBuffer | null = null;
@@ -27,6 +29,10 @@ export class AdminusersComponent implements OnInit {
   public emailVerified = this.usuarioService.usuarioActual.emailVerified;
   public contenido: string = '';
   public limiteCaracteres: number = 200;
+
+  public idTestimonial: any = [];
+
+  public id : any = [];
 
   // public imagenTemp: any[] = [];
 
@@ -61,12 +67,13 @@ export class AdminusersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+console.log("mansana", this.uid );
+ 
 
     this.usuarioService.validarToken().subscribe(resp => {
-      console.log("resp", resp);
+      
       this.usuarioService.usuarioActual = this.usuarioActual;            
-      console.log("this.usuarioActual", this.usuarioActual.emailVerified);
-
+      console.log("this.usuarioActual", this.usuarioActual.uid);
     })
 
 
@@ -192,8 +199,7 @@ export class AdminusersComponent implements OnInit {
   }
 
   createTestimonial() {
-
-    this.usuarioService.createTestimonial(this.registerFormtestimonial.get('mensaje')?.value)
+    this.usuarioService.createTestimonial(this.registerFormtestimonial.get('mensaje')?.value, this.usuarioActual.uid)
       .subscribe(
         {
           next: (resp) => {
@@ -235,9 +241,7 @@ export class AdminusersComponent implements OnInit {
     if (this.usuarioService.getTestimonials()
       .subscribe(
         {
-          next: (resp) => {
-            //  console.log("resjjjjjpu",resp.testimonials[0].usuario._id);
-            // id =resp.testimonials[0].usuario._id;
+          next: (resp) => {           
             console.log("re_spu", resp.testimonials.map((resp: any) => resp.usuario._id));
             const id = resp.testimonials.map((resp: any) => resp.usuario._id);
 
@@ -276,62 +280,70 @@ export class AdminusersComponent implements OnInit {
     }
   }
 
-  eliminarTestimonio() {
+  getIdTestimonial() {
     if (this.usuarioService.getTestimonials()
       .subscribe(
         {
           next: (resp) => {
+            console.log("re_spu", resp.testimonials.map((resp: any) => resp.iduser));
 
-            console.log("respu", resp);
-            if (resp.total === 0) {
+            this.idTestimonial = resp.testimonials.map((resp: any) => resp.iduser);
+        
+          
+
+          }
+          ,
+          error: (err) => {
+            console.log("err", err);
+            Swal.fire(
+              {
+                title: 'Error',
+                text: err.error.msg,
+                icon: 'error',
+                confirmButtonText: 'Aceptar',
+                confirmButtonColor: '#3085d6',
+                allowOutsideClick: false,
+                allowEscapeKey: false
+              })
+          }
+        }
+      )) {
+      return;
+    }
+  }
+
+  eliminarTestimonio(iduser: any) {
+
+    console.log("uiqqd", iduser)
+
+    if (this.usuarioService.getTestimonials()
+      .subscribe(
+        {
+          next: (resp) => {
+            console.log("re_spu", resp.testimonials.map((resp: any) => resp.iduser));
+
+            this.idTestimonial = resp.testimonials.map((resp: any) => resp.iduser);
+            this.id = resp.testimonials.map((resp: any) => resp._id);
+            console.log("id", this.id);
+            console.log("idTestimonial", this.idTestimonial);
+            if (this.idTestimonial.includes(iduser)) {
+              this.eliminarTestimonio2(iduser);
+            } else {
               Swal.fire(
                 {
                   title: 'Error',
-                  text: "No tienes testimonios para eliminar",
+                  text: "No puedes eliminar un testimonial que no es tuyo o que no existe" ,
                   icon: 'error',
                   confirmButtonText: 'Aceptar',
                   confirmButtonColor: '#3085d6',
                   allowOutsideClick: false,
                   allowEscapeKey: false
                 })
-            } else {
-              this.usuarioService.eliminarTestimonio(resp.testimonials[0]._id)
-                .subscribe(
-                  {
-                    next: (resp) => {
-
-                      console.log("respu", resp);
-                      Swal.fire(
-                        {
-                          title: 'Testimonial eliminado correctamente',
-                          text: `Has eliminado tu testimonial  " ${this.registerFormtestimonial.get('mensaje')?.value} " en nuestra base de datos`,
-                          icon: 'success',
-                          confirmButtonText: 'Aceptar',
-                          confirmButtonColor: '#3085d6',
-                          allowOutsideClick: false,
-                          allowEscapeKey: false
-                        })
-                    },
-                    error: (err) => {
-                      console.log("err", err);
-                      Swal.fire(
-                        {
-                          title: 'Error',
-                          text: err.error.msg,
-                          icon: 'error',
-                          confirmButtonText: 'Aceptar',
-                          confirmButtonColor: '#3085d6',
-                          allowOutsideClick: false,
-                          allowEscapeKey: false
-                        })
-                    }
-                  }
-                );
             }
 
-          },
+          }
+          ,
           error: (err) => {
-
             console.log("err", err);
             Swal.fire(
               {
@@ -350,6 +362,43 @@ export class AdminusersComponent implements OnInit {
     }
 
   }
+
+
+  eliminarTestimonio2(iduser: any) {
+    this.usuarioService.eliminarTestimonio(iduser)
+      .subscribe(
+        {
+          next: (resp) => {
+            console.log("respu", resp);
+            Swal.fire(
+              {
+                title: 'Testimonial eliminado correctamente',
+                text: `Has eliminado tu testimonial  " ${this.registerFormtestimonial.get('mensaje')?.value} " en nuestra base de datos`,
+                icon: 'success',
+                confirmButtonText: 'Aceptar',
+                confirmButtonColor: '#3085d6',
+                allowOutsideClick: false,
+                allowEscapeKey: false
+              })
+          },
+          error: (err) => {
+            console.log("err", err);
+            Swal.fire(
+              {
+                title: 'Error',
+                text: err.error.msg,
+                icon: 'error',
+                confirmButtonText: 'Aceptar',
+                confirmButtonColor: '#3085d6',
+                allowOutsideClick: false,
+                allowEscapeKey: false
+              })
+          }
+        }
+      );
+
+  }
+
 
 
 
@@ -375,8 +424,6 @@ export class AdminusersComponent implements OnInit {
   volver(){
     this.location.back();
   }
-
-
  
 
   get caracteresRestantes(): number {

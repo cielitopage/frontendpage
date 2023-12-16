@@ -241,8 +241,8 @@ eliminarUsuario( id: string ) {
 }
 
 
-createTestimonial(mensaje: any) {
-  return this.http.post(`${ baseUrl }/testimonials`, {mensaje}, {
+createTestimonial(mensaje: any,iduser :any) {
+  return this.http.post(`${ baseUrl }/testimonials`, {mensaje,iduser}, {
     headers: {
       'x-token': localStorage.getItem('token') || ''
     }          
@@ -286,9 +286,11 @@ actualizarTestimonial(mensaje: any,id:string) {
 
 }
 
-eliminarTestimonio( id: string ) {
+eliminarTestimonio( iduser: string ) {
 
-  return this.http.delete(`${ baseUrl }/testimonials/${ id }`, {
+
+
+  return this.http.delete(`${ baseUrl }/testimonials/${ iduser }`, {
     headers: {
       'x-token': localStorage.getItem('token') || ''
     }          
