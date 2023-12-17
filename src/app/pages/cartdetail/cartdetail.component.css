@@ -1,0 +1,108 @@
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 40px 0;
+    padding: 0;
+    table-layout: fixed;
+}
+
+table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+}
+
+table tr {
+    border: 1px solid #ddd;
+    padding: .35em;
+}
+
+table th,
+table td {
+    padding: .625em;
+    text-align: center;
+}
+
+table td  input[type="number"] {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    font-size: 1em;
+    font-weight: bold;
+    color: #000;
+    outline: none;
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+  
+   
+}
+
+
+
+table td  label {  
+    text-align: center;  
+    font-size: 0.7em;
+    
+}
+
+
+
+table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+    table thead {
+        display: none;
+    }
+    table tbody, table tr,
+    table
+    td {
+        display: block;
+        width: 100%;
+
+    }
+    table tr {
+        margin-bottom: 15px;
+    }
+ 
+    table td  {
+        margin-left: 50%;
+        transform: translate(-50%, 0);
+       
+    }
+
+    table td input[type="number"] {
+        width: 50px;
+        height: 30px;
+        text-align: center;
+        border: none;
+        border-radius: 5px;
+        background-color: #f5f5f5;
+        font-size: 1em;
+        font-weight: bold;
+        color: #000;
+        outline: none;
+        margin-left: 50%;
+        transform: translate(-50%, 0);
+      }
+  
+
+
+
+    table td:before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+  
+}
