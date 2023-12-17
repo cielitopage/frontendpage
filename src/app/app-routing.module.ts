@@ -41,7 +41,7 @@ const routes : Routes = [
   { path: 'chicos', component:ChicosComponent, data: { title: 'Chicos' }},
   { path: 'chicas', component:ChicasComponent, data: { title: 'Chicas' }},
   { path: 'bebes', component:BebesComponent, data: { title: 'Bebes' }},
-  { path: 'producto/:id', component:DetailproductComponent, data: { title: 'Productos' }},
+  { path: 'producto/:id', component:DetailproductComponent, data: { title: 'Producto' }},
   { path: 'carrito', component:CartdetailComponent, data: { title: 'Carrito' }},
   { path: 'checkout', component:ChekoutComponent,canActivate: [authGuard], data: { title: 'checkout' }},//canActivate: [authGuard],
   { path: 'admin', component:DashboardComponent,canActivate: [authGuard,authGuardAdmin ], data: { title: 'Admin' }},//canActivate: [authGuard,authGuardAdmin ],

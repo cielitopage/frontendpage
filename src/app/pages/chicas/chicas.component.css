@@ -1,0 +1,9 @@
+
+
+@media screen and (max-width: 768px) {
+    
+    .img-fluid-shop {
+        width: 100% !important;
+        height: auto !important;
+    }
+}

@@ -1,63 +1,9 @@
 
-.image_with_badge_container img+span.badge {
-    position: relative;
-    top: 12px;
-    left: -15px;
-    background-color: #ff0000;
-    color: white;
-    border-radius: 50%;
-    font-size: 0.6em;
+
+@media screen and (max-width: 768px) {
     
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;    
-}
-
-.image_with_badge_container img+span.badge:hover {
-    background-color: #ff0000;
-    color: white;
-    border-radius: 50%;
-    font-size: 0.8em;
-    font-weight: bold; 
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;    
-}
-
-.image_with_badge_container img+span.badge:active {
-    background-color: #ff0000;
-    color: white;
-    border-radius: 50%;
-    font-size: 0.8em;
-    font-weight: bold; 
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;    
-}
-
-.image_with_badge_container img+span.badge:focus {
-    background-color: #ff0000;
-    color: white;
-    border-radius: 50%;
-    font-size: 0.8em;
-    font-weight: bold; 
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;    
-}
-
-.image_with_badge_container img+span.badge:visited {
-    background-color: #ff0000;
-    color: white;
-    border-radius: 50%;
-    font-size: 0.8em;
-    font-weight: bold; 
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;    
-}
-
-.image_with_badge_container img+span.badge:link {
-    background-color: #ff0000;
-    color: white;
-    border-radius: 50%;
-    font-size: 0.8em;
-    font-weight: bold; 
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;    
+    .img-fluid-shop {
+        width: 100% !important;
+        height: auto !important;
+    }
 }

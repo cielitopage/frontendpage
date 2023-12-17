@@ -7,16 +7,16 @@
 
 <div class="container-xxl py-5">
 
-  
-    <div class="spinner-border " style="width: 2rem; height: 2rem; margin-left: 50%; "  *ngIf="cargando">
-        <span class="sr-only">Loading...</span>      
+
+    <div class="spinner-border " style="width: 2rem; height: 2rem; margin-left: 50%; " *ngIf="cargando">
+        <span class="sr-only">Loading...</span>
     </div>
     <div class="container">
 
 
 
         <div class="row g-4" data-wow-delay="0.1s">
-          
+
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" *ngFor="let producto of productos">
 
                 <div class="classes-item">
@@ -27,9 +27,11 @@
                         <span class="badge bg-success text-white h6">{{producto.oferta}}% off</span>
                         <span class="badge bg-primary h6 rounded-pill">{{producto.estado | estadoPipe}}</span>
 
-                        <img class="img-fluid-shop " src="{{producto.img}}" alt="" style="width: 100%; height: 100%;"
-                            data-bs-toggle="tooltip" data-bs-placement="top" title="Remera niño rustica">
-                        <a class="btn btn-primary rounded-pill px-4 py-2 mt-3" href="">Ver Producto</a>
+                        <img class="img-fluid-shop " src="{{producto.img}}" alt=""
+                            [routerLink]="['/producto', producto._id]" data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Remera niño rustica">
+                        <a class="btn text-primary rounded-pill px-4 py-2 mt-3"
+                            [routerLink]="['/producto', producto._id]">Ver Producto</a>
                     </div>
                     <div class="bg-light rounded p-4 pt-5 mt-n5">
                         <div class="d-flex align-items-center justify-content-between mb-4">

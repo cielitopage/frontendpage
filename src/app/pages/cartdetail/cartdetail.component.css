@@ -6,12 +6,10 @@ table {
     padding: 0;
     table-layout: fixed;
 }
-
 table caption {
     font-size: 1.5em;
     margin: .5em 0 .75em;
 }
-
 table tr {
     border: 1px solid #ddd;
     padding: .35em;
@@ -35,20 +33,13 @@ table td  input[type="number"] {
     color: #000;
     outline: none;
     margin-left: 50%;
-    transform: translate(-50%, 0);
-  
+    transform: translate(-50%, 0);  
    
 }
-
-
-
 table td  label {  
     text-align: center;  
-    font-size: 0.7em;
-    
+    font-size: 0.7em;    
 }
-
-
 
 table th {
     font-size: .85em;
@@ -94,8 +85,6 @@ table th {
         margin-left: 50%;
         transform: translate(-50%, 0);
       }
-  
-
 
 
     table td:before {
