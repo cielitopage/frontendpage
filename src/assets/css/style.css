@@ -407,16 +407,12 @@ h6,
   
 }
 
-
-
 @media screen and (max-width: 768px) {
     .classes-item-detail {
         width: 100% !important;
-    }
-    
+        margin-left: 0 !important;
+    }    
 }
-
-
 
 /*** Team ***/
 .team-item .team-text {
