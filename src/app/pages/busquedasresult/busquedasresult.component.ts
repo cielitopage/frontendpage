@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Producto } from 'src/app/models/product.models';
 import { ProductoService } from 'src/app/services/producto.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-busquedasresult',
@@ -22,7 +23,10 @@ export class BusquedasresultComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private productoService: ProductoService
+    private productoService: ProductoService,
+    private location: Location
+
+
   ) { }
 
   ngOnInit(): void {
@@ -68,7 +72,9 @@ export class BusquedasresultComponent implements OnInit {
   }
   
 
- 
+  volver(){
+    this.location.back();
+  }
 
 
 

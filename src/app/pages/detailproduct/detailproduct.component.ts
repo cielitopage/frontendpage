@@ -41,6 +41,7 @@ export class DetailproductComponent implements OnInit {
     private router: Router,
     private location: Location
     
+    
   ) { }
 
   ngOnInit(): void {

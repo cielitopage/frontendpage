@@ -19,6 +19,10 @@
 
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" *ngFor="let producto of productos">
 
+                <a class="btn text-primary  px-4 py-2 mt-3" (click)="volver()"><i
+                    class="fa fa-arrow-left"></i> Volver</a>
+            <br /> <br />
+
                 <div class="classes-item">
                     <div class="bg-light  w-100 mx-auto p-3">
                         <a class="d-block text-sm -start h6 mt-1 mb-1" href="">{{producto.nombre}}</a>
